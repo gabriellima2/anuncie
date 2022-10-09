@@ -8,7 +8,7 @@ interface ThemeContextProviderProps {
 	children: ReactNode;
 }
 
-type CurrentThemeName = "light" | "dark";
+export type CurrentThemeName = "light" | "dark";
 
 const THEME_KEY = "theme-preference";
 
@@ -50,8 +50,9 @@ export const ThemeContextProvider = ({
 	return (
 		<ThemeProvider
 			theme={{
-				...themesAvailable[currentThemeName],
 				...globalStyles,
+				colors: themesAvailable[currentThemeName],
+				currentThemeName,
 				changeTheme,
 			}}
 		>
