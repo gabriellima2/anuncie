@@ -41,7 +41,7 @@ $ git clone https://github.com/gabriellima2/anuncie.git
 $ yarn || npm i
 
 3. Inicie a aplicação em modo de desenvolvimento:
-$ yarn start / npm run start
+$ yarn start || npm run start
 
 4. Escaneie o QRCode ou digite a URL informada
 ```
