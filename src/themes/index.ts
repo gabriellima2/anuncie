@@ -42,6 +42,7 @@ export const globalStyles = {
 	colors: light,
 	fonts: {
 		mainLight: "SunflowerLight",
+		mainRegular: "QuestrialRegular",
 		mainMedium: "SunflowerMedium",
 		mainBold: "SunflowerBold",
 	},

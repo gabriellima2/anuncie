@@ -1,12 +1,15 @@
 import { Text } from "react-native";
-import { ChangeThemeButton } from "../../components/Buttons/ChangeThemeButton";
+
+import { SearchBar } from "../../components/SearchBar";
 
 import { AppLayout } from "../../layouts/AppLayout";
 
 export const HomeScreen = () => {
+	const handleSearch = (valueSearch: string) => console.log(valueSearch);
+
 	return (
 		<AppLayout>
-			<ChangeThemeButton />
+			<SearchBar handleSearch={handleSearch} />
 			<Text>Home</Text>
 		</AppLayout>
 	);
