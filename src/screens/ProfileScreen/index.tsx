@@ -1,11 +1,11 @@
-import { SafeAreaView, View, Text } from "react-native";
+import { Text } from "react-native";
+
+import { AppLayout } from "../../layouts/AppLayout";
 
 export const ProfileScreen = () => {
 	return (
-		<SafeAreaView>
-			<View>
-				<Text>Profile</Text>
-			</View>
-		</SafeAreaView>
+		<AppLayout>
+			<Text>Profile</Text>
+		</AppLayout>
 	);
 };

@@ -1,11 +1,13 @@
-import { SafeAreaView, View, Text } from "react-native";
+import { Text } from "react-native";
+import { ChangeThemeButton } from "../../components/Buttons/ChangeThemeButton";
+
+import { AppLayout } from "../../layouts/AppLayout";
 
 export const HomeScreen = () => {
 	return (
-		<SafeAreaView>
-			<View>
-				<Text>Home</Text>
-			</View>
-		</SafeAreaView>
+		<AppLayout>
+			<ChangeThemeButton />
+			<Text>Home</Text>
+		</AppLayout>
 	);
 };

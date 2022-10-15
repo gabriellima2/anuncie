@@ -1,11 +1,11 @@
-import { SafeAreaView, View, Text } from "react-native";
+import { Text } from "react-native";
+
+import { AppLayout } from "../../layouts/AppLayout";
 
 export const AdsScreen = () => {
 	return (
-		<SafeAreaView>
-			<View>
-				<Text>ADS</Text>
-			</View>
-		</SafeAreaView>
+		<AppLayout>
+			<Text>ADS</Text>
+		</AppLayout>
 	);
 };

@@ -1,11 +1,11 @@
-import { SafeAreaView, View, Text } from "react-native";
+import { Text } from "react-native";
+
+import { AppLayout } from "../../layouts/AppLayout";
 
 export const CartScreen = () => {
 	return (
-		<SafeAreaView>
-			<View>
-				<Text>Cart</Text>
-			</View>
-		</SafeAreaView>
+		<AppLayout>
+			<Text>Cart</Text>
+		</AppLayout>
 	);
 };
