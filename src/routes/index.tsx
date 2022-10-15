@@ -36,41 +36,69 @@ function setIcon(
 }
 
 export const Routes = () => {
-	const { colors } = useTheme();
+	const { colors, fonts } = useTheme();
 
 	return (
 		<NavigationContainer independent={true}>
 			<Tab.Navigator
+				initialRouteName="Home"
 				screenOptions={{
 					tabBarShowLabel: false,
+					headerTitleAlign: "center",
+					headerTitleStyle: {
+						fontFamily: fonts.mainMedium,
+						color: colors.fonts.primary,
+						fontSize: 24,
+					},
+					headerStyle: {
+						backgroundColor: colors.bg,
+						elevation: 0, // Tirar a borda
+					},
 					tabBarStyle: {
-						backgroundColor: colors.utils.primary,
+						height: windowHeight < 680 ? 68 : 84,
+
+						// Remover o fundo branco
+						position: "absolute",
+						borderTopWidth: 0,
 
 						borderTopRightRadius: 24,
 						borderTopLeftRadius: 24,
-						height: windowHeight < 680 ? 68 : 84,
+
+						backgroundColor: colors.utils.primary,
 					},
 				}}
 			>
 				<Tab.Screen
 					name="Home"
 					component={HomeScreen}
-					options={setIcon("home-outline", colors.fonts.secondary)}
+					options={{
+						...setIcon("home-outline", colors.fonts.secondary),
+						title: "Explorar",
+					}}
 				/>
 				<Tab.Screen
 					name="Ads"
 					component={AdsScreen}
-					options={setIcon("pricetags-outline", colors.fonts.secondary)}
+					options={{
+						...setIcon("pricetags-outline", colors.fonts.secondary),
+						title: "Anúncios",
+					}}
 				/>
 				<Tab.Screen
 					name="Cart"
 					component={CartScreen}
-					options={setIcon("cart-outline", colors.fonts.secondary)}
+					options={{
+						...setIcon("cart-outline", colors.fonts.secondary),
+						title: "Carrinho",
+					}}
 				/>
 				<Tab.Screen
 					name="Profile"
 					component={ProfileScreen}
-					options={setIcon("person-outline", colors.fonts.secondary)}
+					options={{
+						...setIcon("person-outline", colors.fonts.secondary),
+						title: "Sua Conta",
+					}}
 				/>
 			</Tab.Navigator>
 		</NavigationContainer>
