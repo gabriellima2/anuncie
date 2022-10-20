@@ -8,10 +8,12 @@ import {
 
 import { Icon } from "../components/Icon";
 
-import { ProfileScreen } from "../screens/ProfileScreen";
-import { CartScreen } from "../screens/CartScreen";
-import { HomeScreen } from "../screens/HomeScreen";
-import { AdsScreen } from "../screens/AdsScreen";
+import {
+	StackAdsNavigator,
+	StackCartNavigator,
+	StackHomeNavigator,
+	StackProfileNavigator,
+} from "./Stacks";
 
 import { globalStyles } from "../themes";
 
@@ -26,7 +28,6 @@ function setIcon(
 	return {
 		tabBarIcon: ({ focused }) => (
 			<Icon
-				onlyIcon={true}
 				name={name}
 				size={28}
 				color={focused ? globalStyles.colors.main : unfocusedColor}
@@ -36,24 +37,15 @@ function setIcon(
 }
 
 export const Routes = () => {
-	const { colors, fonts } = useTheme();
+	const { colors } = useTheme();
 
 	return (
 		<NavigationContainer independent={true}>
 			<Tab.Navigator
-				initialRouteName="Home"
+				initialRouteName="HomePage"
 				screenOptions={{
+					headerShown: false,
 					tabBarShowLabel: false,
-					headerTitleAlign: "center",
-					headerTitleStyle: {
-						fontFamily: fonts.mainMedium,
-						color: colors.fonts.primary,
-						fontSize: 24,
-					},
-					headerStyle: {
-						backgroundColor: colors.bg,
-						elevation: 0, // Tirar a borda
-					},
 					tabBarStyle: {
 						height: windowHeight < 680 ? 68 : 84,
 
@@ -69,36 +61,24 @@ export const Routes = () => {
 				}}
 			>
 				<Tab.Screen
-					name="Home"
-					component={HomeScreen}
-					options={{
-						...setIcon("home-outline", colors.fonts.secondary),
-						title: "Explorar",
-					}}
+					name="HomePage"
+					component={StackHomeNavigator}
+					options={{ ...setIcon("home-outline", colors.fonts.secondary) }}
 				/>
 				<Tab.Screen
-					name="Ads"
-					component={AdsScreen}
-					options={{
-						...setIcon("pricetags-outline", colors.fonts.secondary),
-						title: "Anúncios",
-					}}
+					name="My Ads"
+					component={StackAdsNavigator}
+					options={{ ...setIcon("pricetags-outline", colors.fonts.secondary) }}
 				/>
 				<Tab.Screen
-					name="Cart"
-					component={CartScreen}
-					options={{
-						...setIcon("cart-outline", colors.fonts.secondary),
-						title: "Carrinho",
-					}}
+					name="My Cart"
+					component={StackCartNavigator}
+					options={{ ...setIcon("cart-outline", colors.fonts.secondary) }}
 				/>
 				<Tab.Screen
-					name="Profile"
-					component={ProfileScreen}
-					options={{
-						...setIcon("person-outline", colors.fonts.secondary),
-						title: "Sua Conta",
-					}}
+					name="My Profile"
+					component={StackProfileNavigator}
+					options={{ ...setIcon("person-outline", colors.fonts.secondary) }}
 				/>
 			</Tab.Navigator>
 		</NavigationContainer>

@@ -1,11 +1,10 @@
-import styled, { css } from "styled-components/native";
-import type { TouchableOpacityProps } from "react-native";
 import type { ReactNode } from "react";
-import type { CSS } from "../../types";
+import styled, { css } from "styled-components/native";
 
-interface ButtonProps extends TouchableOpacityProps {
+import type { ButtonDefaultProps } from "../../types";
+
+interface ButtonProps extends ButtonDefaultProps {
 	children: ReactNode;
-	style?: CSS;
 }
 
 const ButtonStyle = styled.TouchableOpacity`
