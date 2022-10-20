@@ -1,13 +1,14 @@
 import { useCallback } from "react";
-import { FlatList, ListRenderItemInfo } from "react-native";
+import { FlatList, Image, ListRenderItemInfo, View } from "react-native";
+
+import { useReactNavigation } from "../../hooks/useReactNavigation";
 
 import { AddButton } from "../Buttons/AddButton";
+import { Link } from "../Link";
 
 import type { ProductData } from "../../types";
 
-import { Info, Name, Price, ProductImage, Texts } from "./styles";
-import { Link } from "../Link";
-import { useReactNavigation } from "../../hooks/useReactNavigation";
+import { Info, Name, Price } from "./styles";
 
 interface ProductsProps {
 	products: ProductData[];
@@ -17,17 +18,20 @@ const Product = (props: ProductData) => {
 	const navigation = useReactNavigation();
 
 	return (
-		<Link onPress={() => navigation.navigate("Details", { id: props.id })}>
-			<ProductImage
+		<Link
+			onPress={() => navigation.navigate("Details", { id: props.id })}
+			style={{ width: "47%", marginTop: 24 }}
+		>
+			<Image
 				source={props.images.main}
-				style={{ width: 130, height: 130 }}
-				resizeMode="contain"
+				style={{ width: "100%", height: 180 }}
+				resizeMode="center"
 			/>
 			<Info>
-				<Texts>
+				<View style={{ width: 100 }}>
 					<Name>{props.name}</Name>
 					<Price>{props.price}</Price>
-				</Texts>
+				</View>
 
 				<AddButton onPress={() => console.log("Adicionando ao carrinho...")} />
 			</Info>
@@ -46,6 +50,8 @@ export const Products = ({ products }: ProductsProps) => {
 	return (
 		<FlatList
 			numColumns={2}
+			style={{ marginTop: 8 }}
+			columnWrapperStyle={{ justifyContent: "space-between" }}
 			data={products}
 			renderItem={renderItem}
 			keyExtractor={keyExtractor}
