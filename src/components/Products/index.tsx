@@ -9,6 +9,7 @@ import { Link } from "../Link";
 import type { ProductData } from "../../types";
 
 import { Info, Name, Price } from "./styles";
+import { SearchBar } from "../SearchBar";
 
 interface ProductsProps {
 	products: ProductData[];
@@ -52,9 +53,13 @@ export const Products = ({ products }: ProductsProps) => {
 			numColumns={2}
 			style={{ marginTop: 8 }}
 			columnWrapperStyle={{ justifyContent: "space-between" }}
+			contentContainerStyle={{ paddingBottom: 84, paddingHorizontal: 12 }}
 			data={products}
 			renderItem={renderItem}
 			keyExtractor={keyExtractor}
+			ListHeaderComponent={() => (
+				<SearchBar handleSearch={(value) => console.log(value)} />
+			)}
 		/>
 	);
 };

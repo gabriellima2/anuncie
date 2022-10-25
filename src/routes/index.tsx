@@ -29,7 +29,7 @@ function setIcon(
 		tabBarIcon: ({ focused }) => (
 			<Icon
 				name={name}
-				size={28}
+				size={windowHeight < 680 ? 24 : 28}
 				color={focused ? globalStyles.colors.main : unfocusedColor}
 			/>
 		),
@@ -47,7 +47,7 @@ export const Routes = () => {
 					headerShown: false,
 					tabBarShowLabel: false,
 					tabBarStyle: {
-						height: windowHeight < 680 ? 68 : 84,
+						height: windowHeight < 680 ? 60 : 68,
 
 						// Remover o fundo branco
 						position: "absolute",

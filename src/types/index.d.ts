@@ -21,7 +21,6 @@ export interface ProductData {
 		main: ImageSourcePropType;
 		others: ImageSourcePropType[];
 	};
-	categories: string[];
 }
 
 interface ButtonDefaultProps extends TouchableOpacityProps {
@@ -29,5 +28,10 @@ interface ButtonDefaultProps extends TouchableOpacityProps {
 }
 
 export type RootStackParams = {
+	Home: undefined;
+	Ads: undefined;
+	NewAd: undefined;
+	Cart: undefined;
+	Profile: undefined;
 	Details: { id: number | string };
 };

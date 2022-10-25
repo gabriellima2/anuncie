@@ -14,7 +14,6 @@ export const Container = styled.View`
 	${({ theme }) => css`
 		flex: 1;
 		background-color: ${theme.colors.bg};
-		padding: ${theme.spaces[1]} ${theme.spaces[3]};
 	`}
 `;
 
