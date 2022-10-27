@@ -33,5 +33,5 @@ export type RootStackParams = {
 	NewAd: undefined;
 	Cart: undefined;
 	Profile: undefined;
-	Details: { id: number | string };
+	Details: { id: string };
 };

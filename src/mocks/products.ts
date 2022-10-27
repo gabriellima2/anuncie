@@ -9,6 +9,7 @@ export const products = [
 			main: require("../../assets/images/kit.jpg"),
 			others: [require("../../assets/images/kit.jpg")],
 		},
+		availableQuantity: 12,
 	},
 	{
 		id: "1",
@@ -20,6 +21,7 @@ export const products = [
 			main: require("../../assets/images/tenis.jpg"),
 			others: [require("../../assets/images/tenis.jpg")],
 		},
+		availableQuantity: 12,
 	},
 	{
 		id: "2",
@@ -31,6 +33,7 @@ export const products = [
 			main: require("../../assets/images/iphone.jpg"),
 			others: [require("../../assets/images/iphone.jpg")],
 		},
+		availableQuantity: 12,
 	},
 	{
 		id: "3",
@@ -42,6 +45,7 @@ export const products = [
 			main: require("../../assets/images/kit.jpg"),
 			others: [require("../../assets/images/kit.jpg")],
 		},
+		availableQuantity: 12,
 	},
 	{
 		id: "4",
@@ -53,5 +57,6 @@ export const products = [
 			main: require("../../assets/images/tenis.jpg"),
 			others: [require("../../assets/images/tenis.jpg")],
 		},
+		availableQuantity: 12,
 	},
 ];

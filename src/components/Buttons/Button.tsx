@@ -5,35 +5,38 @@ import type { ButtonDefaultProps } from "../../types";
 
 interface ButtonStyle {
 	size: "small" | "default";
+	isDisabled?: boolean;
 }
 
-interface ButtonProps extends ButtonDefaultProps, ButtonStyle {
+export interface ButtonProps extends ButtonDefaultProps, ButtonStyle {
 	children: ReactNode;
 }
 
 const ButtonStyle = styled.TouchableOpacity<ButtonStyle>`
-	${({ theme, size }) => css`
+	${({ theme, size, isDisabled }) => css`
 		align-items: center;
 		justify-content: center;
 
 		padding: ${size === "default" ? theme.spaces[3] : theme.spaces[1]};
 		border-radius: ${size === "default" ? 8 : 4}px;
 
-		background-color: ${theme.colors.main};
+		background-color: ${isDisabled
+			? theme.colors.utils.secondary
+			: theme.colors.main};
 	`}
 `;
 
 const ButtonText = styled.Text`
 	${({ theme }) => css`
 		font-family: ${theme.fonts.mainMedium};
-		font-size: ${theme.fontSizes[4]};
+		font-size: ${theme.fontSizes[5]};
 		color: #f1f1f1;
 	`}
 `;
 
-export const Button = ({ children, ...props }: ButtonProps) => {
+export const Button = ({ children, isDisabled, ...props }: ButtonProps) => {
 	return (
-		<ButtonStyle {...props} activeOpacity={0.5}>
+		<ButtonStyle {...props} disabled={isDisabled} activeOpacity={0.5}>
 			<ButtonText>{children}</ButtonText>
 		</ButtonStyle>
 	);
