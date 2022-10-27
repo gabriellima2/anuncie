@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components/native";
+import { Text } from "../Text";
 
 export const Info = styled.View`
 	${({ theme }) => css`
@@ -11,7 +12,7 @@ export const Info = styled.View`
 	`}
 `;
 
-export const Name = styled.Text`
+export const Name = styled(Text.Primary)`
 	${({ theme }) => css`
 		width: 100%;
 		height: 35px;
@@ -21,7 +22,7 @@ export const Name = styled.Text`
 	`}
 `;
 
-export const Price = styled.Text`
+export const Price = styled(Text.Primary)`
 	${({ theme }) => css`
 		font-family: ${theme.fonts.mainBold};
 		font-size: ${theme.fontSizes[4]};

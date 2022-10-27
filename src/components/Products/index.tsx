@@ -22,10 +22,13 @@ const Product = (props: ProductData) => {
 		<Link
 			onPress={() => navigation.navigate("Details", { id: props.id })}
 			style={{ width: "47%", marginTop: 24 }}
+			accessibilityLabel="Ver mais detalhes do produto"
+			accessibilityHint="Vai para a página de detalhes do produto"
 		>
 			<Image
 				source={props.images.main}
 				style={{ width: "100%", height: 180 }}
+				accessibilityLabel={`Imagem de ${props.name}`}
 				resizeMode="center"
 			/>
 			<Info>
@@ -34,7 +37,10 @@ const Product = (props: ProductData) => {
 					<Price>{props.price}</Price>
 				</View>
 
-				<AddButton onPress={() => console.log("Adicionando ao carrinho...")} />
+				<AddButton
+					accessibilityLabel="Adicionar ao carrinho"
+					onPress={() => console.log("Adicionando ao carrinho...")}
+				/>
 			</Info>
 		</Link>
 	);
