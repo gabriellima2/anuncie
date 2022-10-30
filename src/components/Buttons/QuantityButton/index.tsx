@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Icon } from "../../Icon";
 
 import { Button, ButtonProps } from "../Button";
+import { Icon } from "../../Icon";
 
 import { Container, QuantityText } from "./styles";
 
@@ -47,13 +47,13 @@ export const QuantityButton = ({
 		<Container>
 			<DecrementButton
 				handlePress={handleUpdatedQuantity}
-				isDisabled={currentQuantity === 1}
+				disabled={currentQuantity === 1}
 				accessibilityLabel="Diminui a quantidade"
 			/>
 			<QuantityText>{currentQuantity}</QuantityText>
 			<IncrementButton
 				handlePress={handleUpdatedQuantity}
-				isDisabled={currentQuantity === maxQuantity}
+				disabled={currentQuantity === maxQuantity}
 				accessibilityLabel="Aumenta a quantidade"
 			/>
 		</Container>
