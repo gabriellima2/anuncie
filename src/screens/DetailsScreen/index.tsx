@@ -1,7 +1,14 @@
+import { useRef } from "react";
 import { Image } from "react-native";
+import { useDispatch } from "react-redux";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-import { QuantityButton } from "../../components/Buttons/QuantityButton";
+import { addProduct } from "../../redux/slices/myProducts.slice";
+
+import {
+	QuantityButton,
+	QuantityButtonRef,
+} from "../../components/Buttons/QuantityButton";
 import { MainButton } from "../../components/Buttons/MainButton";
 
 import { AppLayout } from "../../layouts/AppLayout";
@@ -22,8 +29,18 @@ interface DetailsScreenProps
 	extends NativeStackScreenProps<RootStackParams, "Details"> {}
 
 export const DetailsScreen = (props: DetailsScreenProps) => {
+	const quantityRef = useRef<QuantityButtonRef>(null);
+	const dispatch = useDispatch();
+
 	const id = props.route.params.id;
 	const product = getSpecificProduct(id);
+
+	const handleAddProductToCart = () => {
+		if (!quantityRef.current) return;
+
+		const quantity = quantityRef.current.currentQuantity;
+		dispatch(addProduct({ id, quantity }));
+	};
 
 	return (
 		<AppLayout>
@@ -42,8 +59,12 @@ export const DetailsScreen = (props: DetailsScreenProps) => {
 					<Price>R$ {product.price}</Price>
 				</Content>
 
-				<QuantityButton maxQuantity={product.availableQuantity} />
+				<QuantityButton
+					ref={quantityRef}
+					maxQuantity={product.availableQuantity}
+				/>
 				<MainButton
+					onPress={handleAddProductToCart}
 					style={{ marginTop: 12 }}
 					accessibilityLabel="Adiciona o produto no carrinho"
 				>

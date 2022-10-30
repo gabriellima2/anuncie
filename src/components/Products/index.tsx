@@ -1,15 +1,17 @@
-import { useCallback } from "react";
+import React, { useCallback } from "react";
 import { FlatList, Image, ListRenderItemInfo, View } from "react-native";
+import { useDispatch } from "react-redux";
 
 import { useReactNavigation } from "../../hooks/useReactNavigation";
+import { addProduct } from "../../redux/slices/myProducts.slice";
 
 import { AddButton } from "../Buttons/AddButton";
+import { SearchBar } from "../SearchBar";
 import { Link } from "../Link";
 
 import type { ProductData } from "../../types";
 
 import { Info, Name, Price } from "./styles";
-import { SearchBar } from "../SearchBar";
 
 interface ProductsProps {
 	products: ProductData[];
@@ -17,6 +19,11 @@ interface ProductsProps {
 
 const Product = (props: ProductData) => {
 	const navigation = useReactNavigation();
+	const dispatch = useDispatch();
+
+	const handleAddProductToCart = useCallback(() => {
+		dispatch(addProduct({ id: props.id, quantity: 1 }));
+	}, []);
 
 	return (
 		<Link
@@ -39,7 +46,7 @@ const Product = (props: ProductData) => {
 
 				<AddButton
 					accessibilityLabel="Adicionar ao carrinho"
-					onPress={() => console.log("Adicionando ao carrinho...")}
+					onPress={() => handleAddProductToCart()}
 				/>
 			</Info>
 		</Link>

@@ -23,6 +23,10 @@ export interface ProductData {
 	};
 }
 
+export interface ProductCart extends Pick<ProductData, "id"> {
+	quantity: number;
+}
+
 interface ButtonDefaultProps extends TouchableOpacityProps {
 	style?: CSS;
 }
