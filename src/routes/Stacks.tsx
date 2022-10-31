@@ -66,6 +66,10 @@ export const StackCartNavigator = () => (
 
 export const StackProfileNavigator = () => (
 	<Navigator initialRouteName="Profile">
-		<Stack.Screen name="Profile" component={ProfileScreen} />
+		<Stack.Screen
+			name="Profile"
+			component={ProfileScreen}
+			options={{ title: "Sua Conta" }}
+		/>
 	</Navigator>
 );

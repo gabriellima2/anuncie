@@ -13,6 +13,7 @@ const SafeArea = styled.SafeAreaView`
 export const Container = styled.View`
 	${({ theme }) => css`
 		flex: 1;
+		margin-top: ${theme.spaces[2]};
 		background-color: ${theme.colors.bg};
 	`}
 `;
