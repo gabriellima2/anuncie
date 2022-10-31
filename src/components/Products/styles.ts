@@ -15,7 +15,6 @@ export const Info = styled.View`
 export const Name = styled(Text.Primary)`
 	${({ theme }) => css`
 		width: 100%;
-		height: 35px;
 
 		font-family: ${theme.fonts.mainLight};
 		font-size: ${theme.fontSizes[4]};
@@ -27,6 +26,6 @@ export const Price = styled(Text.Primary)`
 		font-family: ${theme.fonts.mainBold};
 		font-size: ${theme.fontSizes[4]};
 
-		margin-top: ${theme.spaces[2]};
+		margin-top: ${theme.spaces[3]};
 	`}
 `;

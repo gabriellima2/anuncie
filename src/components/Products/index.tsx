@@ -40,7 +40,7 @@ const Product = (props: ProductData) => {
 			/>
 			<Info>
 				<View style={{ width: 100 }}>
-					<Name>{props.name}</Name>
+					<Name numberOfLines={2}>{props.name}</Name>
 					<Price>{props.price}</Price>
 				</View>
 
