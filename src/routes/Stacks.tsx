@@ -37,6 +37,7 @@ const Navigator = (props: NavigatorProps) => {
 					color: colors.fonts.primary,
 					fontSize: 24,
 				},
+				headerTintColor: colors.fonts.primary,
 				headerShadowVisible: false,
 				headerStyle: {
 					backgroundColor: colors.bg,
@@ -51,7 +52,11 @@ const Navigator = (props: NavigatorProps) => {
 export const StackHomeNavigator = () => (
 	<Navigator initialRouteName={stackRoutesNames.Home}>
 		<Stack.Screen name={stackRoutesNames.Home} component={HomeScreen} />
-		<Stack.Screen name={"Details"} component={DetailsScreen} />
+		<Stack.Screen
+			name={"Details"}
+			component={DetailsScreen}
+			options={{ title: "" }}
+		/>
 	</Navigator>
 );
 

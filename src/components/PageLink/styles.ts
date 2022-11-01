@@ -21,7 +21,7 @@ export const Content = styled.View`
 	align-items: center;
 `;
 
-export const Value = styled(Text.Primary)`
+export const Value = styled(Text.RegularPrimary)`
 	${({ theme }) => css`
 		text-transform: capitalize;
 		font-family: ${theme.fonts.mainMedium};

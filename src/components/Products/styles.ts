@@ -12,7 +12,7 @@ export const Info = styled.View`
 	`}
 `;
 
-export const Name = styled(Text.Primary)`
+export const Name = styled(Text.RegularPrimary)`
 	${({ theme }) => css`
 		width: 100%;
 
@@ -21,7 +21,7 @@ export const Name = styled(Text.Primary)`
 	`}
 `;
 
-export const Price = styled(Text.Primary)`
+export const Price = styled(Text.RegularPrimary)`
 	${({ theme }) => css`
 		font-family: ${theme.fonts.mainBold};
 		font-size: ${theme.fontSizes[4]};

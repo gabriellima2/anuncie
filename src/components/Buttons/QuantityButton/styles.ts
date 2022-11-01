@@ -6,7 +6,7 @@ export const Container = styled.View`
 	align-items: center;
 `;
 
-export const QuantityText = styled(Text.Primary)`
+export const QuantityText = styled(Text.RegularPrimary)`
 	${({ theme }) => css`
 		font-size: ${theme.fontSizes[4]};
 		padding: 0px ${theme.spaces[2]};

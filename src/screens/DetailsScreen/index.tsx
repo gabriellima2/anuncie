@@ -23,6 +23,7 @@ import {
 	Name,
 	AvailableQuantity,
 	Price,
+	Buttons,
 } from "./styles";
 
 interface DetailsScreenProps
@@ -59,17 +60,19 @@ export const DetailsScreen = (props: DetailsScreenProps) => {
 					<Price>R$ {product.price}</Price>
 				</Content>
 
-				<QuantityButton
-					ref={quantityRef}
-					maxQuantity={product.availableQuantity}
-				/>
-				<MainButton
-					onPress={handleAddProductToCart}
-					style={{ marginTop: 12 }}
-					accessibilityLabel="Adiciona o produto no carrinho"
-				>
-					Adicionar ao carrinho
-				</MainButton>
+				<Buttons>
+					<QuantityButton
+						ref={quantityRef}
+						maxQuantity={product.availableQuantity}
+					/>
+					<MainButton
+						onPress={handleAddProductToCart}
+						style={{ marginTop: 16 }}
+						accessibilityLabel="Adiciona o produto no carrinho"
+					>
+						Adicionar ao carrinho
+					</MainButton>
+				</Buttons>
 			</Container>
 		</AppLayout>
 	);
