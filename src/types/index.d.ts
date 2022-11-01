@@ -39,3 +39,5 @@ export type RootStackParams = {
 	Profile: undefined;
 	Details: { id: string };
 };
+
+export type StackRouteNames = keyof RootStackParams;

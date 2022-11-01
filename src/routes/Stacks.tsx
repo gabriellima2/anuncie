@@ -7,12 +7,21 @@ import { HomeScreen } from "../screens/HomeScreen";
 import { CartScreen } from "../screens/CartScreen";
 import { AdsScreen } from "../screens/AdsScreen";
 
-import type { Node, RootStackParams } from "../types";
+import type { Node, RootStackParams, StackRouteNames } from "../types";
 
 const Stack = createNativeStackNavigator<RootStackParams>();
 
+export const stackRoutesNames: Record<StackRouteNames, StackRouteNames> = {
+	Home: "Home",
+	Details: "Details",
+	Cart: "Cart",
+	Ads: "Ads",
+	NewAd: "NewAd",
+	Profile: "Profile",
+};
+
 interface NavigatorProps extends Node {
-	initialRouteName: keyof RootStackParams;
+	initialRouteName: StackRouteNames;
 }
 
 const Navigator = (props: NavigatorProps) => {
@@ -40,34 +49,30 @@ const Navigator = (props: NavigatorProps) => {
 };
 
 export const StackHomeNavigator = () => (
-	<Navigator initialRouteName="Home">
-		<Stack.Screen
-			name="Home"
-			component={HomeScreen}
-			options={{ title: "Explorar" }}
-		/>
-		<Stack.Screen name="Details" component={DetailsScreen} />
+	<Navigator initialRouteName={stackRoutesNames.Home}>
+		<Stack.Screen name={stackRoutesNames.Home} component={HomeScreen} />
+		<Stack.Screen name={"Details"} component={DetailsScreen} />
 	</Navigator>
 );
 
 export const StackAdsNavigator = () => (
-	<Navigator initialRouteName="Ads">
-		<Stack.Screen name="Ads" component={AdsScreen} />
-		<Stack.Screen name="NewAd" component={AdsScreen} />
+	<Navigator initialRouteName={stackRoutesNames.Ads}>
+		<Stack.Screen name={stackRoutesNames.Ads} component={AdsScreen} />
+		<Stack.Screen name={stackRoutesNames.NewAd} component={AdsScreen} />
 	</Navigator>
 );
 
 export const StackCartNavigator = () => (
-	<Navigator initialRouteName="Cart">
-		<Stack.Screen name="Cart" component={CartScreen} />
-		<Stack.Screen name="Details" component={DetailsScreen} />
+	<Navigator initialRouteName={stackRoutesNames.Cart}>
+		<Stack.Screen name={stackRoutesNames.Cart} component={CartScreen} />
+		<Stack.Screen name={"Details"} component={DetailsScreen} />
 	</Navigator>
 );
 
 export const StackProfileNavigator = () => (
-	<Navigator initialRouteName="Profile">
+	<Navigator initialRouteName={stackRoutesNames.Profile}>
 		<Stack.Screen
-			name="Profile"
+			name={stackRoutesNames.Profile}
 			component={ProfileScreen}
 			options={{ title: "Sua Conta" }}
 		/>
