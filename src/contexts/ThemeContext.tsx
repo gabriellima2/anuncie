@@ -31,12 +31,6 @@ export const ThemeContextProvider = ({
 
 	useEffect(() => {
 		(async () => {
-			await localStorage.set(THEME_KEY, currentThemeName);
-		})();
-	}, [currentThemeName]);
-
-	useEffect(() => {
-		(async () => {
 			const userThemePreference = await localStorage.get<CurrentThemeName>(
 				THEME_KEY
 			);
@@ -46,6 +40,12 @@ export const ThemeContextProvider = ({
 			setCurrentThemeName(userThemePreference);
 		})();
 	}, []);
+
+	useEffect(() => {
+		(async () => {
+			await localStorage.set(THEME_KEY, currentThemeName);
+		})();
+	}, [currentThemeName]);
 
 	return (
 		<ThemeProvider
