@@ -13,7 +13,7 @@ export const FakeImage = styled.View`
 	`}
 `;
 
-export const Name = styled(Text.Primary)`
+export const Name = styled(Text.MediumPrimary)`
 	${({ theme }) => css`
 		font-family: ${theme.fonts.mainMedium};
 		font-size: ${theme.fontSizes[4]};
