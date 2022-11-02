@@ -9,6 +9,7 @@ export type QuantityButtonRef = { currentQuantity: number } | null;
 
 interface QuantityButtonProps {
 	maxQuantity: number;
+	initialQuantity?: number;
 }
 
 type Action = "decrement" | "increment";
@@ -32,8 +33,8 @@ const IncrementButton = React.memo(({ handlePress, ...props }: Props) => (
 export const QuantityButton = forwardRef<
 	QuantityButtonRef,
 	QuantityButtonProps
->(({ maxQuantity, ...props }, ref) => {
-	const [currentQuantity, setCurrentQuantity] = useState(1);
+>(({ maxQuantity, initialQuantity, ...props }, ref) => {
+	const [currentQuantity, setCurrentQuantity] = useState(initialQuantity || 1);
 
 	const handleUpdatedQuantity = (action: Action) => {
 		if (action === "decrement" && currentQuantity > 1) {

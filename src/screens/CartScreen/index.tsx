@@ -1,11 +1,17 @@
-import { Text } from "react-native";
+import { useSelector } from "react-redux";
+
+import { useMyProductsSelect } from "../../redux/slices/myProducts.slice";
+
+import { CartProducts } from "../../components/Products/CartProducts";
 
 import { AppLayout } from "../../layouts/AppLayout";
 
 export const CartScreen = () => {
+	const { products } = useSelector(useMyProductsSelect);
+
 	return (
 		<AppLayout>
-			<Text>Cart</Text>
+			<CartProducts products={products} />
 		</AppLayout>
 	);
 };

@@ -3,6 +3,7 @@ import { Text } from "../Text";
 
 export const Info = styled.View`
 	${({ theme }) => css`
+		flex: 1;
 		justify-content: space-between;
 		align-items: flex-end;
 		flex-direction: row;

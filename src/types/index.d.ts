@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import type {
+	FlatListProps,
 	ImageSourcePropType,
 	StyleProp,
 	TouchableOpacityProps,
@@ -17,15 +18,23 @@ export interface ProductData {
 	name: string;
 	description: string;
 	price: string;
+	availableQuantity: number;
 	images: {
 		main: ImageSourcePropType;
 		others: ImageSourcePropType[];
 	};
 }
 
-export interface ProductCart extends Pick<ProductData, "id"> {
+export interface CartProductData extends ProductData {
 	quantity: number;
 }
+
+export interface AdProductData extends ProductData {}
+
+export type FlatListProduct<T> = Omit<
+	FlatListProps<T>,
+	"data" | "renderItem" | "keyExtractor"
+>;
 
 interface ButtonDefaultProps extends TouchableOpacityProps {
 	style?: CSS;
