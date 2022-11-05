@@ -1,7 +1,14 @@
-import React, { forwardRef, useImperativeHandle, useState } from "react";
+import React, {
+	forwardRef,
+	useImperativeHandle,
+	useState,
+	useEffect,
+} from "react";
 
 import { Button, ButtonProps } from "../Button";
 import { Icon } from "../../Icon";
+
+import { debounce } from "../../../utils/debounce";
 
 import { Container, QuantityText } from "./styles";
 
@@ -10,6 +17,7 @@ export type QuantityButtonRef = { currentQuantity: number } | null;
 interface QuantityButtonProps {
 	maxQuantity: number;
 	initialQuantity?: number;
+	handleQuantityChange?: (quantity: number) => void;
 }
 
 type Action = "decrement" | "increment";
@@ -33,7 +41,7 @@ const IncrementButton = React.memo(({ handlePress, ...props }: Props) => (
 export const QuantityButton = forwardRef<
 	QuantityButtonRef,
 	QuantityButtonProps
->(({ maxQuantity, initialQuantity, ...props }, ref) => {
+>(({ maxQuantity, initialQuantity, handleQuantityChange }, ref) => {
 	const [currentQuantity, setCurrentQuantity] = useState(initialQuantity || 1);
 
 	const handleUpdatedQuantity = (action: Action) => {
@@ -49,6 +57,12 @@ export const QuantityButton = forwardRef<
 	useImperativeHandle(ref, () => ({
 		currentQuantity,
 	}));
+
+	useEffect(() => {
+		if (!handleQuantityChange) return;
+
+		debounce(() => handleQuantityChange(currentQuantity), 200);
+	}, [currentQuantity]);
 
 	return (
 		<Container>

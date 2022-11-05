@@ -30,3 +30,5 @@ export const Price = styled(Text.RegularPrimary)`
 		margin-top: ${theme.spaces[3]};
 	`}
 `;
+
+export const UserInteractions = styled.View``;
