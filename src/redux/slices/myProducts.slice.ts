@@ -41,7 +41,6 @@ export const myProductsSlice = createSlice({
 			state,
 			{ payload }: PayloadAction<ChangeProductQuantityAction>
 		) => {
-			console.log(payload);
 			state.products = state.products.map((product) => {
 				if (product.id === payload.id) {
 					return {
