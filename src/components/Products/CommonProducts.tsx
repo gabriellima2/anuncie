@@ -33,7 +33,11 @@ export const CommonProduct = (props: CommonProductProps) => {
 			accessibilityHint="Vai para a página de detalhes do produto"
 			style={{ width: "47%", marginTop: 24 }}
 		>
-			<Product {...props} image={{ width: "100%", height: 180 }}>
+			<Product
+				{...props}
+				direction="column"
+				image={{ width: "100%", height: 180 }}
+			>
 				<AddButton
 					accessibilityLabel="Adicionar ao carrinho"
 					onPress={() => handleAddProductToCart()}

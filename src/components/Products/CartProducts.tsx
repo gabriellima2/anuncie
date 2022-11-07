@@ -10,8 +10,6 @@ import { Product } from "./Product";
 
 import type { CartProductData, FlatListProduct } from "../../types";
 
-import { UserInteractions } from "./styles";
-
 interface CartProductsProps extends FlatListProduct<CartProductData> {
 	products: CartProductData[];
 }
@@ -26,17 +24,16 @@ export const CartProduct = (props: CartProductData) => {
 	return (
 		<Product
 			{...props}
-			style={{ flexDirection: "row" }}
+			direction="row"
 			image={{ width: 100, height: 100 }}
+			additionalText={`${props.availableQuantity} Unidades disponíveis`}
 		>
-			<UserInteractions>
-				<RemoveButton productID={props.id} />
-				<QuantityButton
-					initialQuantity={props.quantity}
-					maxQuantity={props.availableQuantity}
-					handleQuantityChange={handleQuantityChange}
-				/>
-			</UserInteractions>
+			<RemoveButton productID={props.id} style={{ marginBottom: 24 }} />
+			<QuantityButton
+				initialQuantity={props.quantity}
+				maxQuantity={props.availableQuantity}
+				handleQuantityChange={handleQuantityChange}
+			/>
 		</Product>
 	);
 };

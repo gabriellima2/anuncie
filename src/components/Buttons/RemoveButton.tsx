@@ -21,7 +21,7 @@ export const RemoveButton = ({ productID, ...props }: RemoveButtonProps) => {
 		<Button
 			{...props}
 			onPress={handlePress}
-			style={{ backgroundColor: "#DD4545" }}
+			style={[props.style, { backgroundColor: "#DD4545" }]}
 			size="small"
 			accessibilityLabel="Remover produto"
 		>

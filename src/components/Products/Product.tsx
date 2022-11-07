@@ -3,11 +3,20 @@ import { Image, ViewProps, View } from "react-native";
 
 import type { ProductData } from "../../types";
 
-import { Info, Name, Price } from "./styles";
+import {
+	Info,
+	Name,
+	Price,
+	Additional,
+	UserInteractions,
+	Container,
+	VariantStyles,
+} from "./styles";
 
 type DataProps = Pick<ProductData, "name" | "images" | "price">;
 
-export interface ProductProps extends DataProps, ViewProps {
+export interface ProductProps extends DataProps, ViewProps, VariantStyles {
+	additionalText?: string;
 	image: {
 		width: string | number;
 		height: string | number;
@@ -20,10 +29,11 @@ export const Product = ({
 	images,
 	children,
 	image,
+	additionalText,
 	...props
 }: ProductProps) => {
 	return (
-		<View {...props}>
+		<Container {...props}>
 			<Image
 				source={images.main}
 				resizeMode="center"
@@ -31,14 +41,15 @@ export const Product = ({
 				style={{ width: image.width, height: image.height }}
 			/>
 
-			<Info>
+			<Info direction={props.direction}>
 				<View>
 					<Name numberOfLines={2}>{name}</Name>
-					<Price>{price}</Price>
+					{additionalText && <Additional>{additionalText}</Additional>}
+					<Price>R$ {price}</Price>
 				</View>
 
-				{children}
+				<UserInteractions>{children}</UserInteractions>
 			</Info>
-		</View>
+		</Container>
 	);
 };

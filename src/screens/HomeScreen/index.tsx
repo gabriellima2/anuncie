@@ -7,7 +7,7 @@ import { products } from "../../mocks/products";
 
 export const HomeScreen = () => {
 	return (
-		<AppLayout>
+		<AppLayout addVerticalSpacing={false}>
 			<CommonProducts
 				products={products}
 				numColumns={2}
