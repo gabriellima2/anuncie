@@ -1,5 +1,6 @@
-import { StatusBar } from "expo-status-bar";
+import { Platform, StatusBar as StatusBarRN } from "react-native";
 import styled, { css, useTheme } from "styled-components/native";
+import { StatusBar } from "expo-status-bar";
 
 import type { Node } from "../types";
 
@@ -19,7 +20,7 @@ const SafeArea = styled.SafeAreaView`
 export const Container = styled.View<ContainerStyle>`
 	${({ theme, addVerticalSpacing }) => css`
 		flex: 1;
-		margin-top: ${theme.spaces[2]};
+		padding-top: ${theme.spaces[2]};
 		padding-left: ${addVerticalSpacing ? theme.spaces[3] : 0};
 		padding-right: ${addVerticalSpacing ? theme.spaces[3] : 0};
 		background-color: ${theme.colors.bg};

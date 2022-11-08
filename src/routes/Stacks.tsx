@@ -51,7 +51,11 @@ const Navigator = (props: NavigatorProps) => {
 
 export const StackHomeNavigator = () => (
 	<Navigator initialRouteName={stackRoutesNames.Home}>
-		<Stack.Screen name={stackRoutesNames.Home} component={HomeScreen} />
+		<Stack.Screen
+			name={stackRoutesNames.Home}
+			component={HomeScreen}
+			options={{ title: "Explorar" }}
+		/>
 		<Stack.Screen
 			name={"Details"}
 			component={DetailsScreen}

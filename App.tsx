@@ -2,6 +2,8 @@ import { useFonts } from "expo-font";
 import { Text } from "react-native";
 import { Provider } from "react-redux";
 
+import { Toast } from "./src/components/Toast";
+
 import { ThemeContextProvider } from "./src/contexts/ThemeContext";
 import { Routes } from "./src/routes";
 import { store } from "./src/redux/store";
@@ -19,6 +21,7 @@ export default function App() {
 	return (
 		<ThemeContextProvider>
 			<Provider store={store}>
+				<Toast />
 				<Routes />
 			</Provider>
 		</ThemeContextProvider>

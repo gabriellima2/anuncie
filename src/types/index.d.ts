@@ -50,3 +50,12 @@ export type RootStackParams = {
 };
 
 export type StackRouteNames = keyof RootStackParams;
+
+export interface ToastColors {
+	success: string;
+	warning: string;
+	error: string;
+	default: string;
+}
+
+export type ToastTypes = keyof ToastColors;

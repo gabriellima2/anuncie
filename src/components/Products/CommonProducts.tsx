@@ -40,7 +40,7 @@ export const CommonProduct = (props: CommonProductProps) => {
 			>
 				<AddButton
 					accessibilityLabel="Adicionar ao carrinho"
-					onPress={() => handleAddProductToCart()}
+					handleAdd={() => handleAddProductToCart()}
 				/>
 			</Product>
 		</Link>

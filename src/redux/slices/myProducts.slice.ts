@@ -6,6 +6,7 @@ import type { RootState } from "../store";
 
 interface MyProductsState {
 	products: CartProductData[];
+	isEmpty: boolean;
 }
 
 export interface AddProductAction
@@ -18,6 +19,7 @@ export interface ChangeProductQuantityAction
 
 const initialState: MyProductsState = {
 	products: [],
+	isEmpty: true,
 };
 
 export const myProductsSlice = createSlice({
@@ -31,6 +33,10 @@ export const myProductsSlice = createSlice({
 			};
 
 			state.products.push(product);
+
+			if (state.isEmpty) {
+				state.isEmpty = false;
+			}
 		},
 		removeProduct: (state, { payload }: PayloadAction<RemoveProductAction>) => {
 			state.products = state.products.filter((product) => {

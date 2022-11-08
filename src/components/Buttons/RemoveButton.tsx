@@ -5,6 +5,7 @@ import { Button } from "./Button";
 
 import type { ButtonDefaultProps } from "../../types";
 import { removeProduct } from "../../redux/slices/myProducts.slice";
+import { showToast } from "../../redux/slices/toast.slice";
 
 export interface RemoveButtonProps extends ButtonDefaultProps {
 	productID: string;
@@ -15,6 +16,14 @@ export const RemoveButton = ({ productID, ...props }: RemoveButtonProps) => {
 
 	const handlePress = () => {
 		dispatch(removeProduct({ id: productID }));
+		dispatch(
+			showToast({
+				type: "success",
+				message: "Removido do carrinho",
+				iconName: "close",
+				time: 2000,
+			})
+		);
 	};
 
 	return (

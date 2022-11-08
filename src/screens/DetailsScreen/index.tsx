@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import { addProduct } from "../../redux/slices/myProducts.slice";
+import { showToast } from "../../redux/slices/toast.slice";
 
 import {
 	QuantityButton,
@@ -41,6 +42,14 @@ export const DetailsScreen = (props: DetailsScreenProps) => {
 
 		const quantity = quantityRef.current.currentQuantity;
 		dispatch(addProduct({ id, quantity }));
+		dispatch(
+			showToast({
+				type: "success",
+				message: "Adicionado ao carrinho",
+				iconName: "checkmark-outline",
+				time: 2000,
+			})
+		);
 	};
 
 	return (
