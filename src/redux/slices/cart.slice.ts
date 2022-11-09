@@ -1,10 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { useSelector } from "react-redux";
 
 import { getSpecificProduct } from "../../utils/getSpecificProduct";
+
 import type { CartProductData, ProductData } from "../../types";
 import type { RootState } from "../store";
 
-interface MyProductsState {
+interface CartState {
 	products: CartProductData[];
 	isEmpty: boolean;
 }
@@ -17,13 +19,13 @@ export interface RemoveProductAction extends Pick<ProductData, "id"> {}
 export interface ChangeProductQuantityAction
 	extends Pick<CartProductData, "id" | "quantity"> {}
 
-const initialState: MyProductsState = {
+const initialState: CartState = {
 	products: [],
 	isEmpty: true,
 };
 
-export const myProductsSlice = createSlice({
-	name: "myProducts",
+export const cartSlice = createSlice({
+	name: "cart",
 	initialState,
 	reducers: {
 		addProduct: (state, { payload }: PayloadAction<AddProductAction>) => {
@@ -61,7 +63,8 @@ export const myProductsSlice = createSlice({
 	},
 });
 
-export const useMyProductsSelect = (state: RootState) => state.myProducts;
+export const useCartSelect = () =>
+	useSelector((state: RootState) => state.cart);
 export const { addProduct, removeProduct, changeProductQuantity } =
-	myProductsSlice.actions;
-export const myProductsReducer = myProductsSlice.reducer;
+	cartSlice.actions;
+export const cartReducer = cartSlice.reducer;

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { FlatList, ListRenderItemInfo } from "react-native";
 
 import { useReactNavigation } from "../../hooks/useReactNavigation";
-import { addProduct } from "../../redux/slices/myProducts.slice";
+import { addProduct } from "../../redux/slices/cart.slice";
 
 import { AddButton } from "../Buttons/AddButton";
 import { Product } from "./Product";

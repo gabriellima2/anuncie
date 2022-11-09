@@ -4,7 +4,7 @@ import { Icon } from "../Icon";
 import { Button } from "./Button";
 
 import type { ButtonDefaultProps } from "../../types";
-import { removeProduct } from "../../redux/slices/myProducts.slice";
+import { removeProduct } from "../../redux/slices/cart.slice";
 import { showToast } from "../../redux/slices/toast.slice";
 
 export interface RemoveButtonProps extends ButtonDefaultProps {

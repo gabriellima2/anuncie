@@ -2,12 +2,12 @@ import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
 
 import { haveSameProductInCart } from "./middlewares/myProducts.middleware";
 
-import { myProductsReducer } from "./slices/myProducts.slice";
+import { cartReducer } from "./slices/cart.slice";
 import { toastReducer } from "./slices/toast.slice";
 
 export const store = configureStore({
 	reducer: {
-		myProducts: myProductsReducer,
+		cart: cartReducer,
 		toast: toastReducer,
 	},
 	middleware: (getDefaultMiddleware) =>

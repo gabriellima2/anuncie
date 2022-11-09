@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
-import { ToastTypes } from "../../types";
+
+import type { ToastTypes } from "../../types";
 import type { RootState } from "../store";
 
 interface ToastState {

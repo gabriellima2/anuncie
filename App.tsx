@@ -5,8 +5,8 @@ import { Provider } from "react-redux";
 import { Toast } from "./src/components/Toast";
 
 import { ThemeContextProvider } from "./src/contexts/ThemeContext";
-import { Routes } from "./src/routes";
 import { store } from "./src/redux/store";
+import { Routes } from "./src/routes";
 
 export default function App() {
 	const [fontsLoaded] = useFonts({

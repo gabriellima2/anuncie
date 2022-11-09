@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { FlatList, ListRenderItemInfo } from "react-native";
 
 import { useDispatch } from "react-redux";
-import { changeProductQuantity } from "../../redux/slices/myProducts.slice";
+import { changeProductQuantity } from "../../redux/slices/cart.slice";
 
 import { QuantityButton } from "../Buttons/QuantityButton";
 import { RemoveButton } from "../Buttons/RemoveButton";

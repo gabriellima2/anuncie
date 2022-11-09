@@ -3,7 +3,7 @@ import { Image } from "react-native";
 import { useDispatch } from "react-redux";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-import { addProduct } from "../../redux/slices/myProducts.slice";
+import { addProduct } from "../../redux/slices/cart.slice";
 import { showToast } from "../../redux/slices/toast.slice";
 
 import {

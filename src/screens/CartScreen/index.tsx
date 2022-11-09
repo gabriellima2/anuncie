@@ -1,6 +1,4 @@
-import { useSelector } from "react-redux";
-
-import { useMyProductsSelect } from "../../redux/slices/myProducts.slice";
+import { useCartSelect } from "../../redux/slices/cart.slice";
 
 import { CartProducts } from "../../components/Products/CartProducts";
 import { Empty } from "../../components/Empty";
@@ -8,7 +6,7 @@ import { Empty } from "../../components/Empty";
 import { AppLayout } from "../../layouts/AppLayout";
 
 export const CartScreen = () => {
-	const { products, isEmpty } = useSelector(useMyProductsSelect);
+	const { products, isEmpty } = useCartSelect();
 
 	if (isEmpty)
 		return (

@@ -5,7 +5,7 @@ import type {
 	MiddlewareAPI,
 	PayloadAction,
 } from "@reduxjs/toolkit";
-import type { AddProductAction } from "../slices/myProducts.slice";
+import type { AddProductAction } from "../slices/cart.slice";
 import type { RootState } from "../store";
 
 type Store = MiddlewareAPI<Dispatch<AnyAction>, RootState>;
