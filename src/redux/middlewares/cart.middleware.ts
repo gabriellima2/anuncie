@@ -5,6 +5,7 @@ import type {
 	MiddlewareAPI,
 	PayloadAction,
 } from "@reduxjs/toolkit";
+
 import type { AddProductAction } from "../slices/cart.slice";
 import type { RootState } from "../store";
 
@@ -20,5 +21,5 @@ export const haveSameProductInCart: Middleware =
 			if (product.id === action.payload.id) return product;
 		});
 
-		if (!sameProduct.length) return next(action);
+		if (sameProduct.length === 0) return next(action);
 	};

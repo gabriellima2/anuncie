@@ -10,6 +10,8 @@ import {
 	BottomTabNavigationOptions,
 } from "@react-navigation/bottom-tabs";
 
+import { useStatusToast } from "../hooks/useStatusToast";
+
 import { Icon } from "../components/Icon";
 
 import {
@@ -53,6 +55,8 @@ function setIcon(
 
 export const Routes = () => {
 	const { colors } = useTheme();
+
+	useStatusToast();
 
 	return (
 		<NavigationContainer independent={true}>

@@ -5,7 +5,7 @@ import { FlatList, ListRenderItemInfo } from "react-native";
 import { useReactNavigation } from "../../hooks/useReactNavigation";
 import { addProduct } from "../../redux/slices/cart.slice";
 
-import { AddButton } from "../Buttons/AddButton";
+import { AddToCartButton } from "../Buttons/AddToCartButton";
 import { Product } from "./Product";
 import { Link } from "../Link";
 
@@ -38,9 +38,9 @@ export const CommonProduct = (props: CommonProductProps) => {
 				direction="column"
 				image={{ width: "100%", height: 180 }}
 			>
-				<AddButton
+				<AddToCartButton.Quick
 					accessibilityLabel="Adicionar ao carrinho"
-					handleAdd={() => handleAddProductToCart()}
+					onPress={() => handleAddProductToCart()}
 				/>
 			</Product>
 		</Link>

@@ -1,8 +1,12 @@
 import React, { useCallback } from "react";
 import { FlatList, ListRenderItemInfo } from "react-native";
-
 import { useDispatch } from "react-redux";
-import { changeProductQuantity } from "../../redux/slices/cart.slice";
+
+import {
+	changeProductQuantity,
+	removeProduct,
+} from "../../redux/slices/cart.slice";
+import { showToast } from "../../redux/slices/toast.slice";
 
 import { QuantityButton } from "../Buttons/QuantityButton";
 import { RemoveButton } from "../Buttons/RemoveButton";
@@ -21,6 +25,10 @@ export const CartProduct = (props: CartProductData) => {
 		dispatch(changeProductQuantity({ id: props.id, quantity: newQuantity }));
 	};
 
+	const handleRemove = () => {
+		dispatch(removeProduct({ id: props.id }));
+	};
+
 	return (
 		<Product
 			{...props}
@@ -28,7 +36,11 @@ export const CartProduct = (props: CartProductData) => {
 			image={{ width: 100, height: 100 }}
 			additionalText={`${props.availableQuantity} Unidades disponíveis`}
 		>
-			<RemoveButton productID={props.id} style={{ marginBottom: 24 }} />
+			<RemoveButton
+				onPress={handleRemove}
+				accessibilityLabel="Remover produto"
+				style={{ marginBottom: 24 }}
+			/>
 			<QuantityButton
 				initialQuantity={props.quantity}
 				maxQuantity={props.availableQuantity}

@@ -9,17 +9,19 @@ interface ToastState {
 	type: ToastTypes;
 	message: string;
 	iconName: string;
-	time: number;
+	time?: number;
 }
 
 interface ShowToastAction extends Omit<ToastState, "isActive"> {}
+
+const DEFAULT_TIME = 2000;
 
 const initialState: ToastState = {
 	isActive: false,
 	type: "default",
 	message: "",
 	iconName: "",
-	time: 2000,
+	time: DEFAULT_TIME,
 };
 
 export const toastSlice = createSlice({
@@ -31,7 +33,7 @@ export const toastSlice = createSlice({
 			state.type = payload.type;
 			state.message = payload.message;
 			state.iconName = payload.iconName;
-			state.time = payload.time;
+			state.time = payload.time || DEFAULT_TIME;
 		},
 
 		hideToast: (state) => {

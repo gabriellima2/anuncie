@@ -4,13 +4,12 @@ import { useDispatch } from "react-redux";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import { addProduct } from "../../redux/slices/cart.slice";
-import { showToast } from "../../redux/slices/toast.slice";
 
 import {
 	QuantityButton,
 	QuantityButtonRef,
 } from "../../components/Buttons/QuantityButton";
-import { MainButton } from "../../components/Buttons/MainButton";
+import { AddToCartButton } from "../../components/Buttons/AddToCartButton";
 
 import { AppLayout } from "../../layouts/AppLayout";
 
@@ -42,14 +41,6 @@ export const DetailsScreen = (props: DetailsScreenProps) => {
 
 		const quantity = quantityRef.current.currentQuantity;
 		dispatch(addProduct({ id, quantity }));
-		dispatch(
-			showToast({
-				type: "success",
-				message: "Adicionado ao carrinho",
-				iconName: "checkmark-outline",
-				time: 2000,
-			})
-		);
 	};
 
 	return (
@@ -74,13 +65,12 @@ export const DetailsScreen = (props: DetailsScreenProps) => {
 						ref={quantityRef}
 						maxQuantity={product.availableQuantity}
 					/>
-					<MainButton
+					<AddToCartButton.Main
 						onPress={handleAddProductToCart}
 						style={{ marginTop: 16 }}
-						accessibilityLabel="Adiciona o produto no carrinho"
 					>
 						Adicionar ao carrinho
-					</MainButton>
+					</AddToCartButton.Main>
 				</Buttons>
 			</Container>
 		</AppLayout>
