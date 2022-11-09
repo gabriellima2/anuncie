@@ -1,6 +1,6 @@
 import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
 
-import { haveSameProductInCart } from "./middlewares/myProducts.middleware";
+import { haveSameProductInCart } from "./middlewares/cart.middleware";
 
 import { cartReducer } from "./slices/cart.slice";
 import { toastReducer } from "./slices/toast.slice";

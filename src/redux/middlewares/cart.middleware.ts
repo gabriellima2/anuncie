@@ -12,11 +12,11 @@ type Store = MiddlewareAPI<Dispatch<AnyAction>, RootState>;
 
 export const haveSameProductInCart: Middleware =
 	(store: Store) => (next) => (action: PayloadAction<AddProductAction>) => {
-		if (action.type !== "myProducts/addProduct") return next(action);
+		if (action.type !== "cart/addProduct") return next(action);
 
-		const { myProducts } = store.getState();
+		const { cart } = store.getState();
 
-		const sameProduct = myProducts.products.filter((product) => {
+		const sameProduct = cart.products.filter((product) => {
 			if (product.id === action.payload.id) return product;
 		});
 
