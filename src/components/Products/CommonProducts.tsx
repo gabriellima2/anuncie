@@ -10,7 +10,6 @@ import { Product } from "./Product";
 import { Link } from "../Link";
 
 import type { FlatListProduct, ProductData } from "../../types";
-import { showToast } from "../../redux/slices/toast.slice";
 
 interface CommonProductProps
 	extends Omit<ProductData, "availableQuantity" | "description"> {}
@@ -25,9 +24,6 @@ export const CommonProduct = (props: CommonProductProps) => {
 
 	const handleAddProductToCart = useCallback(() => {
 		dispatch(addProduct({ id: props.id, quantity: 1 }));
-		dispatch(
-			showToast({ type: "success", message: "Hello", iconName: "cart" })
-		);
 	}, []);
 
 	return (
