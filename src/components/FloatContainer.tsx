@@ -1,4 +1,4 @@
-import { Platform, StatusBar, ViewProps } from "react-native";
+import { ViewProps } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { setZIndex } from "../utils/getZIndex";
@@ -11,8 +11,6 @@ export const FloatContainer = (props: ViewProps) => (
 			{
 				...setZIndex(40),
 				position: "absolute",
-				top: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-				paddingTop: 16,
 			},
 		]}
 	/>

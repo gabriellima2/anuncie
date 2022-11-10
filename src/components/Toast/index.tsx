@@ -37,7 +37,7 @@ export const Toast = () => {
 	return (
 		<Container accessibilityRole="alert">
 			<TouchableWithoutFeedback onPress={handleHide}>
-				<Content colorBasedType={colors[toast.type]}>
+				<Content bgColor={colors[toast.type]}>
 					<Icon name={toast.iconName} color="#000000cd" size={20} />
 					<Message>{toast.message}</Message>
 				</Content>

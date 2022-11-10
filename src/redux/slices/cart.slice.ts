@@ -9,10 +9,6 @@ import type { RootState } from "../store";
 interface CartState {
 	products: CartProductData[];
 	isEmpty: boolean;
-	status: {
-		hasError: boolean | null;
-		message: string | null;
-	};
 }
 
 export interface AddProductAction
@@ -26,10 +22,6 @@ export interface ChangeProductQuantityAction
 const initialState: CartState = {
 	products: [],
 	isEmpty: true,
-	status: {
-		hasError: null,
-		message: null,
-	},
 };
 
 export const cartSlice = createSlice({
@@ -47,17 +39,15 @@ export const cartSlice = createSlice({
 			if (state.isEmpty) {
 				state.isEmpty = false;
 			}
-
-			state.status.hasError = false;
-			state.status.message = "Produto adicionado ao carrinho!";
 		},
 		removeProduct: (state, { payload }: PayloadAction<RemoveProductAction>) => {
 			state.products = state.products.filter((product) => {
 				if (product.id !== payload.id) return product;
 			});
 
-			state.status.hasError = false;
-			state.status.message = "Produto removido do carrinho!";
+			if (!state.isEmpty && state.products.length === 0) {
+				state.isEmpty = true;
+			}
 		},
 		changeProductQuantity: (
 			state,
