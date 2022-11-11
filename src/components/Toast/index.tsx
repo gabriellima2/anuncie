@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { LayoutAnimation, LayoutAnimationConfig } from "react-native";
 
 import { hideToast, useToastSelect } from "../../redux/slices/toast.slice";
 
@@ -21,12 +22,31 @@ export const Toast = () => {
 	const toast = useToastSelect();
 	const dispatch = useDispatch();
 
+	const layoutAnimConfig: LayoutAnimationConfig = {
+		duration: 200,
+		create: {
+			duration: 100,
+			type: LayoutAnimation.Types.linear,
+			property: LayoutAnimation.Properties.opacity,
+		},
+		delete: {
+			duration: 100,
+			type: LayoutAnimation.Types.linear,
+			property: LayoutAnimation.Properties.opacity,
+		},
+	};
+
 	const handleHide = () => dispatch(hideToast());
 
 	useEffect(() => {
 		if (!toast.isActive) return;
 
-		timer = setTimeout(() => handleHide(), toast.time);
+		LayoutAnimation.configureNext(layoutAnimConfig);
+
+		timer = setTimeout(() => {
+			LayoutAnimation.configureNext(layoutAnimConfig);
+			handleHide();
+		}, toast.time);
 
 		return () => clearTimeout(timer);
 	}, [toast.isActive]);

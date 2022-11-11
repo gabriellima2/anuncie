@@ -6,7 +6,6 @@ import {
 	changeProductQuantity,
 	removeProduct,
 } from "../../redux/slices/cart.slice";
-import { showToast } from "../../redux/slices/toast.slice";
 
 import { QuantityButton } from "../Buttons/QuantityButton";
 import { RemoveButton } from "../Buttons/RemoveButton";
