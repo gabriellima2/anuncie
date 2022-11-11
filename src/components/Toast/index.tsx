@@ -21,7 +21,7 @@ export const Toast = () => {
 	const toast = useToastSelect();
 	const dispatch = useDispatch();
 
-	const handleHide = () => () => dispatch(hideToast());
+	const handleHide = () => dispatch(hideToast());
 
 	useEffect(() => {
 		if (!toast.isActive) return;
