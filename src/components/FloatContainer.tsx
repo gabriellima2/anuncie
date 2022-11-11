@@ -11,6 +11,7 @@ export const FloatContainer = (props: ViewProps) => (
 			{
 				...setZIndex(40),
 				position: "absolute",
+				bottom: 80,
 			},
 		]}
 	/>

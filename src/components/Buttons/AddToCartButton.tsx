@@ -1,29 +1,44 @@
+import { useDispatch } from "react-redux";
+import type { GestureResponderEvent } from "react-native";
+
+import { showToast } from "../../redux/slices/toast.slice";
+
 import { MainButton } from "./MainButton";
 import { Button } from "./Button";
-import { Icon } from "../Icon";
 
 import type { ButtonDefaultProps } from "../../types";
 
-interface Props extends Omit<ButtonDefaultProps, "accessibilityLabel"> {}
+interface Props extends Omit<ButtonDefaultProps, "accessibilityLabel"> {
+	variants: "quick" | "main";
+}
 
-const Quick = (props: Props) => (
-	<Button
-		{...props}
-		size="small"
-		accessibilityLabel="Adiciona o produto ao carrinho"
-	>
-		<Icon name="cart" size={18} color="#f1f1f1" />
-	</Button>
-);
+export const AddToCartButton = ({ variants, ...props }: Props) => {
+	const dispatch = useDispatch();
 
-const Main = (props: Props) => (
-	<MainButton
-		{...props}
-		style={[props.style, { marginTop: 16 }]}
-		accessibilityLabel="Adiciona o produto ao carrinho"
-	>
-		Adicionar ao carrinho
-	</MainButton>
-);
+	const isQuickButton = variants === "quick";
+	const BaseButton = isQuickButton ? Button : MainButton;
 
-export const AddToCartButton = { Quick, Main };
+	const handlePress = (e: GestureResponderEvent) => {
+		if (!props.onPress) return;
+
+		props.onPress(e);
+		dispatch(
+			showToast({
+				type: "success",
+				iconName: "cart",
+				message: "Produto adicionado ao carrinho",
+			})
+		);
+	};
+
+	return (
+		<BaseButton
+			{...props}
+			size={isQuickButton ? "small" : "default"}
+			accessibilityLabel="Adiciona o produto ao carrinho"
+			onPress={handlePress}
+		>
+			{props.children}
+		</BaseButton>
+	);
+};

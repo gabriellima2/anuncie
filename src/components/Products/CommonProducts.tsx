@@ -8,6 +8,7 @@ import { addProduct } from "../../redux/slices/cart.slice";
 import { AddToCartButton } from "../Buttons/AddToCartButton";
 import { Product } from "./Product";
 import { Link } from "../Link";
+import { Icon } from "../Icon";
 
 import type { FlatListProduct, ProductData } from "../../types";
 
@@ -38,7 +39,12 @@ export const CommonProduct = (props: CommonProductProps) => {
 				direction="column"
 				image={{ width: "100%", height: 180 }}
 			>
-				<AddToCartButton.Quick onPress={() => handleAddProductToCart()} />
+				<AddToCartButton
+					variants="quick"
+					onPress={() => handleAddProductToCart()}
+				>
+					<Icon name="cart" size={18} color="#f1f1f1" />
+				</AddToCartButton>
 			</Product>
 		</Link>
 	);

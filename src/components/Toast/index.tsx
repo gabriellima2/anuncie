@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { TouchableWithoutFeedback } from "react-native";
 
 import { hideToast, useToastSelect } from "../../redux/slices/toast.slice";
 
@@ -22,7 +21,7 @@ export const Toast = () => {
 	const toast = useToastSelect();
 	const dispatch = useDispatch();
 
-	const handleHide = () => dispatch(hideToast());
+	const handleHide = () => () => dispatch(hideToast());
 
 	useEffect(() => {
 		if (!toast.isActive) return;
@@ -36,12 +35,10 @@ export const Toast = () => {
 
 	return (
 		<Container accessibilityRole="alert">
-			<TouchableWithoutFeedback onPress={handleHide}>
-				<Content bgColor={colors[toast.type]}>
-					<Icon name={toast.iconName} color="#000000cd" size={20} />
-					<Message>{toast.message}</Message>
-				</Content>
-			</TouchableWithoutFeedback>
+			<Content bgColor={colors[toast.type]}>
+				<Icon name={toast.iconName} color="#0a0a0a" size={20} />
+				<Message>{toast.message}</Message>
+			</Content>
 		</Container>
 	);
 };

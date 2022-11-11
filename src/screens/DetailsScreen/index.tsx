@@ -65,12 +65,13 @@ export const DetailsScreen = (props: DetailsScreenProps) => {
 						ref={quantityRef}
 						maxQuantity={product.availableQuantity}
 					/>
-					<AddToCartButton.Main
+					<AddToCartButton
+						variants="main"
 						onPress={handleAddProductToCart}
 						style={{ marginTop: 16 }}
 					>
 						Adicionar ao carrinho
-					</AddToCartButton.Main>
+					</AddToCartButton>
 				</Buttons>
 			</Container>
 		</AppLayout>

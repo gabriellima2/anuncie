@@ -1,4 +1,3 @@
-import { Dimensions } from "react-native";
 import styled from "styled-components/native";
 
 import { FloatContainer } from "../FloatContainer";
@@ -8,10 +7,7 @@ interface ContentStyles {
 	bgColor: string;
 }
 
-const screenWidthDevice = Dimensions.get("screen").width;
-
 export const Container = styled(FloatContainer)`
-	width: ${screenWidthDevice - 20}px;
 	align-self: center;
 `;
 
@@ -21,12 +17,12 @@ export const Content = styled.View<ContentStyles>`
 	flex-direction: row;
 	align-items: center;
 
-	padding: 12px;
+	padding: 12px 16px;
 	border-radius: 8px;
 	background-color: ${({ bgColor }) => bgColor};
 `;
 
-export const Message = styled(Text.RegularPrimary)`
+export const Message = styled(Text.MediumPrimary)`
 	margin-left: 12px;
 	color: #000000;
 `;
