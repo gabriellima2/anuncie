@@ -10,7 +10,7 @@ import {
 	BottomTabNavigationOptions,
 } from "@react-navigation/bottom-tabs";
 
-import { Icon } from "../components/Icon";
+import { Icon } from "@components/Icon";
 
 import {
 	StackAdsNavigator,

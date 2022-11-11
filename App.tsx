@@ -2,11 +2,11 @@ import { useFonts } from "expo-font";
 import { Text } from "react-native";
 import { Provider } from "react-redux";
 
-import { Toast } from "./src/components/Toast";
+import { Toast } from "@components/Toast";
 
-import { ThemeContextProvider } from "./src/contexts/ThemeContext";
-import { store } from "./src/redux/store";
-import { Routes } from "./src/routes";
+import { ThemeContextProvider } from "@contexts/ThemeContext";
+import { store } from "@redux/store";
+import { Routes } from "@routes/index";
 
 export default function App() {
 	const [fontsLoaded] = useFonts({

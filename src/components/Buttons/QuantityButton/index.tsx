@@ -5,10 +5,10 @@ import React, {
 	useEffect,
 } from "react";
 
-import { Button, ButtonProps } from "../Button";
-import { Icon } from "../../Icon";
+import { Button, ButtonProps } from "@components/Buttons/Button";
+import { Icon } from "@components/Icon";
 
-import { debounce } from "../../../utils/debounce";
+import { debounce } from "@utils/debounce";
 
 import { Container, QuantityText } from "./styles";
 

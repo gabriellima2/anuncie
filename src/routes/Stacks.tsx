@@ -1,11 +1,11 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useTheme } from "styled-components/native";
 
-import { DetailsScreen } from "../screens/DetailsScreen";
-import { ProfileScreen } from "../screens/ProfileScreen";
-import { HomeScreen } from "../screens/HomeScreen";
-import { CartScreen } from "../screens/CartScreen";
-import { AdsScreen } from "../screens/AdsScreen";
+import { DetailsScreen } from "@screens/DetailsScreen";
+import { ProfileScreen } from "@screens/ProfileScreen";
+import { HomeScreen } from "@screens/HomeScreen";
+import { CartScreen } from "@screens/CartScreen";
+import { AdsScreen } from "@screens/AdsScreen";
 
 import type { Node, RootStackParams, StackRouteNames } from "../types";
 

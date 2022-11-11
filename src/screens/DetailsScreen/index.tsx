@@ -3,18 +3,17 @@ import { Image } from "react-native";
 import { useDispatch } from "react-redux";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-import { addProduct } from "../../redux/slices/cart.slice";
+import { addProduct } from "@redux/slices/cart.slice";
 
 import {
 	QuantityButton,
 	QuantityButtonRef,
-} from "../../components/Buttons/QuantityButton";
-import { AddToCartButton } from "../../components/Buttons/AddToCartButton";
+} from "@components/Buttons/QuantityButton";
+import { AddToCartButton } from "@components/Buttons/AddToCartButton";
 
-import { AppLayout } from "../../layouts/AppLayout";
+import { AppLayout } from "@layouts/AppLayout";
 
 import type { RootStackParams } from "../../types";
-import { getSpecificProduct } from "../../utils/getSpecificProduct";
 
 import {
 	Container,
@@ -25,6 +24,7 @@ import {
 	Price,
 	Buttons,
 } from "./styles";
+import { getSpecificProduct } from "@utils/getSpecificProduct";
 
 interface DetailsScreenProps
 	extends NativeStackScreenProps<RootStackParams, "Details"> {}

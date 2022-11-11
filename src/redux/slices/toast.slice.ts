@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
 
 import type { ToastTypes } from "../../types";
-import type { RootState } from "../store";
+import type { RootState } from "@redux/store";
 
 interface ToastState {
 	isActive: boolean;

@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { LayoutAnimation, LayoutAnimationConfig } from "react-native";
 
-import { hideToast, useToastSelect } from "../../redux/slices/toast.slice";
+import { hideToast, useToastSelect } from "@redux/slices/toast.slice";
 
-import { Icon } from "../Icon";
+import { Icon } from "@components/Icon";
 
 import type { ToastColors } from "../../types";
 import { Container, Content, Message } from "./styles";

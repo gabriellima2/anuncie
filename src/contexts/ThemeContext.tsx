@@ -2,7 +2,7 @@ import { ReactNode, useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components/native";
 
 import { globalStyles, dark, light } from "../themes";
-import { localStorage } from "../utils/localStorage";
+import { localStorage } from "@utils/localStorage";
 
 interface ThemeContextProviderProps {
 	children: ReactNode;

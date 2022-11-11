@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import type { GestureResponderEvent } from "react-native";
 
-import { showToast } from "../../redux/slices/toast.slice";
+import { showToast } from "@redux/slices/toast.slice";
 
 import { MainButton } from "./MainButton";
 import { Button } from "./Button";

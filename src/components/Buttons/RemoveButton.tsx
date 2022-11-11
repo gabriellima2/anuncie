@@ -4,7 +4,7 @@ import {
 	LayoutAnimationConfig,
 } from "react-native";
 
-import { Icon } from "../Icon";
+import { Icon } from "@components/Icon";
 import { Button } from "./Button";
 
 import type { ButtonDefaultProps } from "../../types";

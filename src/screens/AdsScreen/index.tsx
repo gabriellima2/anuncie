@@ -1,6 +1,6 @@
 import { Text } from "react-native";
 
-import { AppLayout } from "../../layouts/AppLayout";
+import { AppLayout } from "@layouts/AppLayout";
 
 export const AdsScreen = () => {
 	return (

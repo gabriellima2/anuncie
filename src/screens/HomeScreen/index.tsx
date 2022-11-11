@@ -1,9 +1,9 @@
-import { CommonProducts } from "../../components/Products/CommonProducts";
-import { SearchBar } from "../../components/SearchBar";
+import { CommonProducts } from "@components/Products/CommonProducts";
+import { SearchBar } from "@components/SearchBar";
 
-import { AppLayout } from "../../layouts/AppLayout";
+import { AppLayout } from "@layouts/AppLayout";
 
-import { products } from "../../mocks/products";
+import { products } from "@mocks/products";
 
 export const HomeScreen = () => {
 	return (

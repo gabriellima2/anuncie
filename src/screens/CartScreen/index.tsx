@@ -1,9 +1,9 @@
-import { useCartSelect } from "../../redux/slices/cart.slice";
+import { useCartSelect } from "@redux/slices/cart.slice";
 
-import { CartProducts } from "../../components/Products/CartProducts";
-import { Empty } from "../../components/Empty";
+import { CartProducts } from "@components/Products/CartProducts";
+import { Empty } from "@components/Empty";
 
-import { AppLayout } from "../../layouts/AppLayout";
+import { AppLayout } from "@layouts/AppLayout";
 
 export const CartScreen = () => {
 	const { products, isEmpty } = useCartSelect();

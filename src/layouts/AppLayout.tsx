@@ -1,4 +1,3 @@
-import { Platform, StatusBar as StatusBarRN } from "react-native";
 import styled, { css, useTheme } from "styled-components/native";
 import { StatusBar } from "expo-status-bar";
 

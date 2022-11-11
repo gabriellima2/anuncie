@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components/native";
-import { Text } from "../Text";
+import { Text } from "@components/Text";
 
 export interface VariantStyles {
 	direction: "row" | "column";

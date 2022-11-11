@@ -2,13 +2,13 @@ import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { FlatList, ListRenderItemInfo } from "react-native";
 
-import { useReactNavigation } from "../../hooks/useReactNavigation";
-import { addProduct } from "../../redux/slices/cart.slice";
+import { useReactNavigation } from "@hooks/useReactNavigation";
+import { addProduct } from "@redux/slices/cart.slice";
 
-import { AddToCartButton } from "../Buttons/AddToCartButton";
+import { AddToCartButton } from "@components/Buttons/AddToCartButton";
+import { Link } from "@components/Link";
+import { Icon } from "@components/Icon";
 import { Product } from "./Product";
-import { Link } from "../Link";
-import { Icon } from "../Icon";
 
 import type { FlatListProduct, ProductData } from "../../types";
 

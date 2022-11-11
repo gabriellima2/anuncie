@@ -1,9 +1,9 @@
-import { ChangeThemeButton } from "../../components/Buttons/ChangeThemeButton";
-import { Copyright } from "../../components/Copyright";
-import { PageLink } from "../../components/PageLink";
-import { User } from "../../components/User";
+import { ChangeThemeButton } from "@components/Buttons/ChangeThemeButton";
+import { Copyright } from "@components/Copyright";
+import { PageLink } from "@components/PageLink";
+import { User } from "@components/User";
 
-import { AppLayout } from "../../layouts/AppLayout";
+import { AppLayout } from "@layouts/AppLayout";
 
 import { Container, Content, Links } from "./styles";
 

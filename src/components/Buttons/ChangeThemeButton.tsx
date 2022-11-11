@@ -1,7 +1,7 @@
 import { TouchableOpacity } from "react-native";
 import { useTheme } from "styled-components";
 
-import { Icon } from "../Icon";
+import { Icon } from "@components/Icon";
 
 export const ChangeThemeButton = () => {
 	const { currentThemeName, changeTheme, colors } = useTheme();

@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 
-import { FloatContainer } from "../FloatContainer";
-import { Text } from "../Text";
+import { FloatContainer } from "@components/FloatContainer";
+import { Text } from "@components/Text";
 
 interface ContentStyles {
 	bgColor: string;

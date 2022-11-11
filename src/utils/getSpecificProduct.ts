@@ -1,4 +1,4 @@
-import { products } from "../mocks/products";
+import { products } from "@mocks/products";
 
 export function getSpecificProduct(id: string) {
 	const [product] = products.filter((product) => {

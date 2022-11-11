@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
 
-import { getSpecificProduct } from "../../utils/getSpecificProduct";
+import { getSpecificProduct } from "@utils/getSpecificProduct";
 
 import type { CartProductData, ProductData } from "../../types";
-import type { RootState } from "../store";
+import type { RootState } from "@redux/store";
 
 interface CartState {
 	products: CartProductData[];
