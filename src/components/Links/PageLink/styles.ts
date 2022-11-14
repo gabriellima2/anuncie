@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components/native";
 
-import { Link } from "@components/Link";
+import { Link } from "@components/Links/Link";
 import { Text } from "@components/Text";
 
 export const Container = styled(Link)`

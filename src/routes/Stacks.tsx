@@ -6,6 +6,7 @@ import { ProfileScreen } from "@screens/ProfileScreen";
 import { HomeScreen } from "@screens/HomeScreen";
 import { CartScreen } from "@screens/CartScreen";
 import { AdsScreen } from "@screens/AdsScreen";
+import { NewAd } from "@screens/NewAd";
 
 import type { Node, RootStackParams, StackRouteNames } from "../types";
 
@@ -67,7 +68,7 @@ export const StackHomeNavigator = () => (
 export const StackAdsNavigator = () => (
 	<Navigator initialRouteName={stackRoutesNames.Ads}>
 		<Stack.Screen name={stackRoutesNames.Ads} component={AdsScreen} />
-		<Stack.Screen name={stackRoutesNames.NewAd} component={AdsScreen} />
+		<Stack.Screen name={stackRoutesNames.NewAd} component={NewAd} />
 	</Navigator>
 );
 

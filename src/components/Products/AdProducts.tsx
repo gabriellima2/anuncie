@@ -19,7 +19,7 @@ export const AdProduct = (props: AdProductData) => {
 	return (
 		<View>
 			<Image
-				source={props.images.main}
+				source={props.sourceImage}
 				resizeMode="center"
 				accessibilityLabel={`Imagem de ${props.name}`}
 				style={{ width: 100, height: 100 }}

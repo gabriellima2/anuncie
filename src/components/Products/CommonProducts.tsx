@@ -6,7 +6,7 @@ import { useReactNavigation } from "@hooks/useReactNavigation";
 import { addProduct } from "@redux/slices/cart.slice";
 
 import { AddToCartButton } from "@components/Buttons/AddToCartButton";
-import { Link } from "@components/Link";
+import { Link } from "@components/Links/Link";
 import { Icon } from "@components/Icon";
 import { Product } from "./Product";
 

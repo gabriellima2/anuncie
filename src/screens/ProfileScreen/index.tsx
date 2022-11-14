@@ -1,6 +1,6 @@
 import { ChangeThemeButton } from "@components/Buttons/ChangeThemeButton";
+import { PageLink } from "@components/Links/PageLink";
 import { Copyright } from "@components/Copyright";
-import { PageLink } from "@components/PageLink";
 import { User } from "@components/User";
 
 import { AppLayout } from "@layouts/AppLayout";

@@ -5,10 +5,7 @@ export const products = [
 		description:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
 		price: "139,00",
-		images: {
-			main: require("../../assets/images/kit.jpg"),
-			others: [require("../../assets/images/kit.jpg")],
-		},
+		sourceImage: require("../../assets/images/kit.jpg"),
 		availableQuantity: 12,
 	},
 	{
@@ -17,10 +14,7 @@ export const products = [
 		description:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
 		price: "245,00",
-		images: {
-			main: require("../../assets/images/tenis.jpg"),
-			others: [require("../../assets/images/tenis.jpg")],
-		},
+		sourceImage: require("../../assets/images/tenis.jpg"),
 		availableQuantity: 12,
 	},
 	{
@@ -29,10 +23,7 @@ export const products = [
 		description:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
 		price: "2900,00",
-		images: {
-			main: require("../../assets/images/iphone.jpg"),
-			others: [require("../../assets/images/iphone.jpg")],
-		},
+		sourceImage: require("../../assets/images/iphone.jpg"),
 		availableQuantity: 12,
 	},
 	{
@@ -41,10 +32,7 @@ export const products = [
 		description:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
 		price: "139,00",
-		images: {
-			main: require("../../assets/images/kit.jpg"),
-			others: [require("../../assets/images/kit.jpg")],
-		},
+		sourceImage: require("../../assets/images/kit.jpg"),
 		availableQuantity: 12,
 	},
 	{
@@ -53,10 +41,7 @@ export const products = [
 		description:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
 		price: "245,00",
-		images: {
-			main: require("../../assets/images/tenis.jpg"),
-			others: [require("../../assets/images/tenis.jpg")],
-		},
+		sourceImage: require("../../assets/images/tenis.jpg"),
 		availableQuantity: 12,
 	},
 ];

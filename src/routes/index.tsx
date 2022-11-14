@@ -32,7 +32,8 @@ function hideTabBarOnSpecificRoutes(route: RouteProp<ParamListBase, string>) {
 	if (!focusedRouteName) return false;
 
 	return (
-		focusedRouteName === (stackRoutesNames.Details || stackRoutesNames.NewAd)
+		focusedRouteName === stackRoutesNames.Details ||
+		focusedRouteName === stackRoutesNames.NewAd
 	);
 }
 

@@ -19,10 +19,7 @@ export interface ProductData {
 	description: string;
 	price: string;
 	availableQuantity: number;
-	images: {
-		main: ImageSourcePropType;
-		others: ImageSourcePropType[];
-	};
+	sourceImage: ImageSourcePropType | undefined;
 }
 
 export interface CartProductData extends ProductData {
@@ -59,3 +56,5 @@ export interface ToastColors {
 }
 
 export type ToastTypes = keyof ToastColors;
+
+export interface AdFormData extends Record<keyof AdProductData, string> {}

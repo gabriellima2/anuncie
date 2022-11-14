@@ -46,7 +46,7 @@ export const DetailsScreen = (props: DetailsScreenProps) => {
 	return (
 		<AppLayout>
 			<Image
-				source={product.images.main}
+				source={product.sourceImage}
 				accessibilityLabel={`Imagem do produto ${product.name}`}
 				style={{ width: "100%", height: "45%" }}
 			/>

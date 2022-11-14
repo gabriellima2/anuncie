@@ -1,6 +1,6 @@
 import { useTheme } from "styled-components/native";
 
-import { LinkProps } from "@components/Link";
+import { LinkProps } from "@components/Links/Link";
 import { Icon } from "@components/Icon";
 
 import { Container, Content, Value } from "./styles";

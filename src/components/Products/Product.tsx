@@ -13,7 +13,7 @@ import {
 	VariantStyles,
 } from "./styles";
 
-type DataProps = Pick<ProductData, "name" | "images" | "price">;
+type DataProps = Pick<ProductData, "name" | "sourceImage" | "price">;
 
 export interface ProductProps extends DataProps, ViewProps, VariantStyles {
 	additionalText?: string;
@@ -26,7 +26,7 @@ export interface ProductProps extends DataProps, ViewProps, VariantStyles {
 export const Product = ({
 	name,
 	price,
-	images,
+	sourceImage,
 	children,
 	image,
 	additionalText,
@@ -35,7 +35,7 @@ export const Product = ({
 	return (
 		<Container {...props}>
 			<Image
-				source={images.main}
+				source={sourceImage}
 				resizeMode="center"
 				accessibilityLabel={`Imagem de ${name}`}
 				style={{ width: image.width, height: image.height }}

@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled, { useTheme } from "styled-components/native";
 
 import { Button } from "./Buttons/Button";
-import { Input } from "./Input";
+import { Input } from "./Inputs/Input";
 import { Icon } from "./Icon";
 
 interface SearchBarProps {

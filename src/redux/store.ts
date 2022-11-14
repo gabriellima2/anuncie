@@ -1,15 +1,10 @@
 import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
 
 import { haveSameProductInCart } from "./middlewares/cart.middleware";
-
-import { cartReducer } from "./slices/cart.slice";
-import { toastReducer } from "./slices/toast.slice";
+import { reducers } from "./reducers";
 
 export const store = configureStore({
-	reducer: {
-		cart: cartReducer,
-		toast: toastReducer,
-	},
+	reducer: reducers,
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware().concat(haveSameProductInCart),
 });
