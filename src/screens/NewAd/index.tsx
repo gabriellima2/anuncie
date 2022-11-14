@@ -1,7 +1,10 @@
+import { useRef } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { View } from "react-native";
 
-import { QuantityButton } from "@components/Buttons/QuantityButton";
+import {
+	QuantityButton,
+	QuantityButtonRef,
+} from "@components/Buttons/QuantityButton";
 import { InputForm } from "@components/Inputs/InputForm/InputForm";
 import { MainButton } from "@components/Buttons/MainButton";
 import { Label } from "@components/Label";
@@ -11,32 +14,39 @@ import { AppLayout } from "@layouts/AppLayout";
 import { adInputs } from "@mocks/adInputs";
 import type { AdFormData } from "src/types";
 
+import { Form, Fields, Quantity } from "./styles";
+
 export const NewAd = () => {
+	const quantityRef = useRef<QuantityButtonRef>(null);
 	const { handleSubmit, control } = useForm<AdFormData>();
 
 	const onSubmit: SubmitHandler<AdFormData> = (data) => {
-		console.log(data);
+		const quantity = quantityRef.current?.currentQuantity || 1;
+
+		console.log({ ...data, quantity });
 	};
 
 	return (
 		<AppLayout>
-			<View>
-				{adInputs.map((input) => (
-					<InputForm<AdFormData>
-						key={input.id}
-						name={input.id}
-						label={input.label}
-						control={control}
-					/>
-				))}
+			<Form>
+				<Fields>
+					{adInputs.map((input) => (
+						<InputForm<AdFormData>
+							{...input}
+							key={input.id}
+							name={input.id}
+							control={control}
+						/>
+					))}
 
-				<View>
-					<Label>Quantidade disponível</Label>
-					<QuantityButton maxQuantity={100} />
-				</View>
+					<Quantity>
+						<Label>Quantidade disponível</Label>
+						<QuantityButton maxQuantity={100} ref={quantityRef} />
+					</Quantity>
+				</Fields>
 
 				<MainButton onPress={handleSubmit(onSubmit)}>Finalizar</MainButton>
-			</View>
+			</Form>
 		</AppLayout>
 	);
 };

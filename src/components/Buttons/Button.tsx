@@ -29,7 +29,7 @@ const ButtonStyle = styled.TouchableOpacity<ButtonStyle>`
 const ButtonText = styled.Text`
 	${({ theme }) => css`
 		font-family: ${theme.fonts.mainMedium};
-		font-size: ${theme.fontSizes[5]};
+		font-size: 18px;
 		color: #f1f1f1;
 	`}
 `;

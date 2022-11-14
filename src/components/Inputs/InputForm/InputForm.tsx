@@ -1,10 +1,11 @@
-import { Text, TextInputProps, View } from "react-native";
 import { Control, FieldValues, useController, Path } from "react-hook-form";
 
-import { Input } from "@components/Inputs/Input";
+import { Input, InputProps } from "@components/Inputs/Input";
 import { Label } from "@components/Label";
 
-interface InputFormProps<TForm extends FieldValues> extends TextInputProps {
+import { Container, Error } from "./styles";
+
+interface InputFormProps<TForm extends FieldValues> extends InputProps {
 	name: Path<TForm>;
 	label: string;
 	control: Control<TForm, unknown>;
@@ -22,18 +23,13 @@ export const InputForm = <T extends FieldValues>({
 	} = useController({
 		control,
 		name,
-		rules: {
-			required: {
-				message: "Preecha!",
-				value: true,
-			},
-		},
+		rules: {},
 	});
 
 	const fieldError = errors[field.name];
 
 	return (
-		<View>
+		<Container>
 			<Label>{label}</Label>
 			<Input
 				{...props}
@@ -42,7 +38,11 @@ export const InputForm = <T extends FieldValues>({
 				autoCorrect={false}
 				autoCapitalize="none"
 			/>
-			{fieldError && <Text>{JSON.stringify(fieldError.message)}</Text>}
-		</View>
+			{fieldError && (
+				<Error accessible accessibilityRole="alert">
+					{fieldError.message}
+				</Error>
+			)}
+		</Container>
 	);
 };

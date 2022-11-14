@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styled, { useTheme } from "styled-components/native";
+import styled from "styled-components/native";
 
 import { Button } from "./Buttons/Button";
 import { Input } from "./Inputs/Input";
@@ -16,7 +16,6 @@ const Container = styled.View`
 
 export const SearchBar = ({ handleSearch }: SearchBarProps) => {
 	const [searchValue, setSearchValue] = useState("");
-	const { colors } = useTheme();
 
 	return (
 		<Container>
@@ -29,8 +28,8 @@ export const SearchBar = ({ handleSearch }: SearchBarProps) => {
 				accessibilityLabel="Campo de busca"
 				accessibilityHint="Mostrará uma tela com o resultado"
 				onChangeText={setSearchValue}
-				placeholderTextColor={`${colors.fonts.secondary}ab`}
 				onSubmitEditing={() => handleSearch(searchValue)}
+				style={{ flex: 1 }}
 			/>
 			<Button
 				accessibilityLabel="Buscar"

@@ -12,10 +12,7 @@ export const light = {
 		secondary: "#D0D0D0",
 	},
 
-	status: {
-		active: "#217819",
-		disabled: "#C54242",
-	},
+	error: "#F06565",
 };
 
 export const dark = {
@@ -32,10 +29,7 @@ export const dark = {
 		secondary: "#2D2D2D",
 	},
 
-	status: {
-		active: "#8DF284",
-		disabled: "#F28484",
-	},
+	error: "#F06565",
 };
 
 export const globalStyles = {

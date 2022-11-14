@@ -19,9 +19,7 @@ const SafeArea = styled.SafeAreaView`
 export const Container = styled.View<ContainerStyle>`
 	${({ theme, addVerticalSpacing }) => css`
 		flex: 1;
-		padding-top: ${theme.spaces[2]};
-		padding-left: ${addVerticalSpacing ? theme.spaces[3] : 0};
-		padding-right: ${addVerticalSpacing ? theme.spaces[3] : 0};
+		padding: ${theme.spaces[3]} ${addVerticalSpacing ? theme.spaces[3] : 0};
 		background-color: ${theme.colors.bg};
 	`}
 `;

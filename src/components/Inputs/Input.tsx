@@ -1,16 +1,29 @@
-import styled, { css } from "styled-components/native";
+import styled, { css, useTheme } from "styled-components/native";
+import type { TextInputProps } from "react-native";
 
-export const Input = styled.TextInput`
+export interface InputProps
+	extends Omit<TextInputProps, "placeholderTextColor"> {}
+
+const Container = styled.TextInput`
 	${({ theme }) => css`
-		flex: 1;
-
-		padding: ${theme.spaces[1]} ${theme.spaces[3]};
+		padding: ${theme.spaces[2]} ${theme.spaces[3]};
 		border-radius: 8px;
 
 		font-family: ${theme.fonts.mainRegular};
 		color: ${theme.colors.fonts.primary};
-		font-size: ${theme.fontSizes[4]};
+		font-size: 14px;
 
 		background-color: ${theme.colors.utils.primary};
 	`}
 `;
+
+export const Input = (props: InputProps) => {
+	const { colors } = useTheme();
+
+	return (
+		<Container
+			{...props}
+			placeholderTextColor={`${colors.fonts.secondary}a1`}
+		/>
+	);
+};

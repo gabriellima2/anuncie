@@ -9,16 +9,12 @@ export interface LinkProps
 }
 
 export const Link = ({ variants, ...props }: LinkProps) => {
-	if (variants === "background") {
-		return (
-			<Button {...props} activeOpacity={0.6} accessibilityRole="link">
-				{props.children}
-			</Button>
-		);
-	}
+	const Component = variants === "background" ? Button : TouchableOpacity;
 
 	return (
-		<TouchableOpacity {...props} activeOpacity={0.6} accessibilityRole="link" />
+		<Component {...props} activeOpacity={0.6} accessibilityRole="link">
+			{props.children}
+		</Component>
 	);
 };
 
