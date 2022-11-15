@@ -1,9 +1,9 @@
 import { AdProductData } from "src/types";
+import type { TextInputProps } from "react-native";
 
-interface Input {
+interface Input extends TextInputProps {
 	id: keyof AdProductData;
 	label: string;
-	placeholder?: string;
 }
 
 export const adInputs: Input[] = [
@@ -11,6 +11,7 @@ export const adInputs: Input[] = [
 		id: "sourceImage",
 		label: "URL da Imagem",
 		placeholder: "Ex: https://url-da-imagem.jpeg",
+		keyboardType: "url",
 	},
 	{ id: "name", label: "Título", placeholder: "Digite o título" },
 	{
@@ -18,5 +19,10 @@ export const adInputs: Input[] = [
 		label: "Descrição (Opcional)",
 		placeholder: "Digite a descrição",
 	},
-	{ id: "price", label: "Preço", placeholder: "Ex: 100,00" },
+	{
+		id: "price",
+		label: "Preço",
+		placeholder: "Ex: 100,00",
+		keyboardType: "numeric",
+	},
 ];

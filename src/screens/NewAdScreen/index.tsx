@@ -6,6 +6,7 @@ import {
 	QuantityButton,
 	QuantityButtonRef,
 } from "@components/Buttons/QuantityButton";
+import { KeyboardAvoidingWrapper } from "@components/KeyboardAvoidingWrapper";
 import { InputForm } from "@components/Inputs/InputForm/InputForm";
 import { MainButton } from "@components/Buttons/MainButton";
 import { Label } from "@components/Label";
@@ -32,25 +33,28 @@ export const NewAdScreen = () => {
 
 	return (
 		<AppLayout>
-			<Form>
-				<Fields>
-					{adInputs.map((input) => (
-						<InputForm<AdFormData>
-							{...input}
-							key={input.id}
-							name={input.id as Path<AdFormData>}
-							control={control}
-						/>
-					))}
+			<KeyboardAvoidingWrapper>
+				<Form>
+					<Fields>
+						{adInputs.map((input) => (
+							<InputForm<AdFormData>
+								{...input}
+								key={input.id}
+								name={input.id as Path<AdFormData>}
+								control={control}
+								accessibilityLabel={input.label}
+							/>
+						))}
 
-					<Quantity>
-						<Label>Quantidade disponível</Label>
-						<QuantityButton maxQuantity={100} ref={quantityRef} />
-					</Quantity>
-				</Fields>
+						<Quantity>
+							<Label>Quantidade disponível</Label>
+							<QuantityButton maxQuantity={100} ref={quantityRef} />
+						</Quantity>
+					</Fields>
 
-				<MainButton onPress={handleSubmit(onSubmit)}>Finalizar</MainButton>
-			</Form>
+					<MainButton onPress={handleSubmit(onSubmit)}>Finalizar</MainButton>
+				</Form>
+			</KeyboardAvoidingWrapper>
 		</AppLayout>
 	);
 };

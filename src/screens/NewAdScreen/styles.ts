@@ -6,6 +6,7 @@ export const Form = styled.View`
 
 export const Fields = styled.View`
 	flex: 1;
+	margin-bottom: 32px;
 `;
 
 export const Quantity = styled.View`
