@@ -23,7 +23,6 @@ export const InputForm = <T extends FieldValues>({
 	} = useController({
 		control,
 		name,
-		rules: {},
 	});
 
 	const fieldError = errors[field.name];

@@ -1,5 +1,6 @@
 import { useRef } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler, Path } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 import {
 	QuantityButton,
@@ -15,10 +16,13 @@ import { adInputs } from "@mocks/adInputs";
 import type { AdFormData } from "src/types";
 
 import { Form, Fields, Quantity } from "./styles";
+import { adSchema } from "src/schemas/ad.schema";
 
-export const NewAd = () => {
+export const NewAdScreen = () => {
 	const quantityRef = useRef<QuantityButtonRef>(null);
-	const { handleSubmit, control } = useForm<AdFormData>();
+	const { handleSubmit, control } = useForm<AdFormData>({
+		resolver: yupResolver(adSchema),
+	});
 
 	const onSubmit: SubmitHandler<AdFormData> = (data) => {
 		const quantity = quantityRef.current?.currentQuantity || 1;
@@ -34,7 +38,7 @@ export const NewAd = () => {
 						<InputForm<AdFormData>
 							{...input}
 							key={input.id}
-							name={input.id}
+							name={input.id as Path<AdFormData>}
 							control={control}
 						/>
 					))}

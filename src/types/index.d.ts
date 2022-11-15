@@ -6,6 +6,9 @@ import type {
 	TouchableOpacityProps,
 	ViewStyle,
 } from "react-native";
+import { InferType } from "yup";
+
+import { adSchema } from "src/schemas/ad.schema";
 
 export type CSS = StyleProp<ViewStyle>;
 
@@ -57,4 +60,6 @@ export interface ToastColors {
 
 export type ToastTypes = keyof ToastColors;
 
-export interface AdFormData extends Record<keyof AdProductData, string> {}
+export interface AdFormData
+	extends InferType<typeof adSchema>,
+		Pick<Record<keyof AdProductData, string>, "availableQuantity" | "id"> {}

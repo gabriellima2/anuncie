@@ -15,7 +15,7 @@ export const adInputs: Input[] = [
 	{ id: "name", label: "Título", placeholder: "Digite o título" },
 	{
 		id: "description",
-		label: "Descrição",
+		label: "Descrição (Opcional)",
 		placeholder: "Digite a descrição",
 	},
 	{ id: "price", label: "Preço", placeholder: "Ex: 100,00" },
