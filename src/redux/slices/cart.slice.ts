@@ -14,7 +14,7 @@ interface CartState {
 export interface AddProductAction
 	extends Pick<CartProductData, "id" | "quantity"> {}
 
-export interface RemoveProductAction extends Pick<ProductData, "id"> {}
+export interface RemoveProductAction extends Pick<CartProductData, "id"> {}
 
 export interface ChangeProductQuantityAction
 	extends Pick<CartProductData, "id" | "quantity"> {}

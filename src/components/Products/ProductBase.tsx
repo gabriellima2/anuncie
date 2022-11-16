@@ -35,7 +35,9 @@ export const ProductBase = ({
 	return (
 		<Container {...props}>
 			<Image
-				source={sourceImage}
+				source={
+					typeof sourceImage === "string" ? { uri: sourceImage } : sourceImage
+				}
 				resizeMode="center"
 				accessibilityLabel={`Imagem de ${name}`}
 				style={{ width: image.width, height: image.height }}

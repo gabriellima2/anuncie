@@ -1,35 +1,33 @@
 import React from "react";
-import { Image, TouchableOpacity, View } from "react-native";
+import { View } from "react-native";
+import { useDispatch } from "react-redux";
 
-import { Text } from "@components/Text";
+import { editAdProduct, removeAdProduct } from "@redux/slices/ad.slice";
+
+import { RemoveButton } from "@components/Buttons/RemoveButton";
+import { EditButton } from "@components/Buttons/EditButton";
+import { ProductBase } from "./ProductBase";
 
 import type { AdProductData } from "../../types";
 
-import { Info, Name, Price } from "./styles";
-
 export const AdProduct = (props: AdProductData) => {
+	const dispatch = useDispatch();
+
+	const handleEditPress = () => dispatch(editAdProduct({ id: props.id }));
+
+	const handleRemovePress = () => dispatch(removeAdProduct({ id: props.id }));
+
 	return (
-		<View>
-			<Image
-				source={{ uri: props.sourceImage as string }}
-				resizeMode="center"
-				accessibilityLabel={`Imagem de ${props.name}`}
-				style={{ width: 100, height: 100 }}
-			/>
-
-			<Info>
-				<View>
-					<Name numberOfLines={2}>{props.name}</Name>
-					<Price>{props.price}</Price>
-				</View>
-
-				<TouchableOpacity>
-					<Text.LightPrimary>Editar</Text.LightPrimary>
-				</TouchableOpacity>
-				<TouchableOpacity>
-					<Text.LightPrimary>Remover</Text.LightPrimary>
-				</TouchableOpacity>
-			</Info>
-		</View>
+		<ProductBase
+			{...props}
+			direction="row"
+			image={{ width: 100, height: 100 }}
+			additionalText={"0 Unidades vendidas"}
+		>
+			<View>
+				<EditButton onPress={handleEditPress} style={{ marginBottom: 12 }} />
+				<RemoveButton onPress={handleRemovePress} />
+			</View>
+		</ProductBase>
 	);
 };

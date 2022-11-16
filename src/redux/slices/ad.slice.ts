@@ -9,6 +9,9 @@ interface AdState {
 	isEmpty: boolean;
 }
 
+interface RemoveAdProductAction extends Pick<AdProductData, "id"> {}
+interface EditAdProductAction extends Pick<AdProductData, "id"> {}
+
 const initialState: AdState = {
 	products: [],
 	isEmpty: true,
@@ -18,17 +21,20 @@ export const adSlice = createSlice({
 	name: "ad",
 	initialState,
 	reducers: {
-		addNewProductAd: (state, action: PayloadAction<AdProductData>) => {
+		setAdProduct: (state, action: PayloadAction<AdProductData>) => {
 			state.products.push(action.payload);
 		},
 
-		removeProductAd: (state, action: PayloadAction) => {},
+		editAdProduct: (state, action: PayloadAction<EditAdProductAction>) => {
+			console.log("editar " + action.payload.id);
+		},
 
-		editProductAd: (state, action: PayloadAction) => {},
+		removeAdProduct: (state, action: PayloadAction<RemoveAdProductAction>) => {
+			console.log("remover " + action.payload.id);
+		},
 	},
 });
 
 export const useAdSelect = () => useSelector((state: RootState) => state.ad);
-export const { addNewProductAd, removeProductAd, editProductAd } =
-	adSlice.actions;
+export const { setAdProduct, editAdProduct, removeAdProduct } = adSlice.actions;
 export const adReducer = adSlice.reducer;

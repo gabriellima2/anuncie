@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch } from "react-redux";
 import type { ImageSourcePropType } from "react-native";
 
-import { addNewProductAd } from "@redux/slices/ad.slice";
+import { setAdProduct } from "@redux/slices/ad.slice";
 
 import {
 	QuantityButton,
@@ -44,7 +44,7 @@ export const NewAdScreen = () => {
 			sourceImage: data.sourceImage.trim() as ImageSourcePropType,
 		};
 
-		dispatch(addNewProductAd(product));
+		dispatch(setAdProduct(product));
 	};
 
 	return (
