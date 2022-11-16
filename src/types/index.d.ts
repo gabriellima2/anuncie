@@ -19,10 +19,10 @@ export interface Node {
 export interface ProductData {
 	id: string;
 	name: string;
-	description: string;
+	description?: string;
 	price: string;
 	availableQuantity: number;
-	sourceImage: ImageSourcePropType | undefined;
+	sourceImage: ImageSourcePropType;
 }
 
 export interface CartProductData extends ProductData {
@@ -62,4 +62,4 @@ export type ToastTypes = keyof ToastColors;
 
 export interface AdFormData
 	extends InferType<typeof adSchema>,
-		Pick<Record<keyof AdProductData, string>, "availableQuantity" | "id"> {}
+		Pick<Record<keyof AdProductData, string>, "availableQuantity"> {}

@@ -1,6 +1,7 @@
-import { RootState } from "@redux/store";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
+import { RootState } from "@redux/store";
+
 import type { AdProductData } from "src/types";
 
 interface AdState {
@@ -17,7 +18,9 @@ export const adSlice = createSlice({
 	name: "ad",
 	initialState,
 	reducers: {
-		addNewProductAd: (state, action: PayloadAction) => {},
+		addNewProductAd: (state, action: PayloadAction<AdProductData>) => {
+			state.products.push(action.payload);
+		},
 
 		removeProductAd: (state, action: PayloadAction) => {},
 
