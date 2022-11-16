@@ -1,6 +1,5 @@
 import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
-import { FlatList, ListRenderItemInfo } from "react-native";
 
 import { useReactNavigation } from "@hooks/useReactNavigation";
 import { addProduct } from "@redux/slices/cart.slice";
@@ -8,18 +7,14 @@ import { addProduct } from "@redux/slices/cart.slice";
 import { AddToCartButton } from "@components/Buttons/AddToCartButton";
 import { Link } from "@components/Links/Link";
 import { Icon } from "@components/Icon";
-import { Product } from "./Product";
+import { ProductBase } from "./ProductBase";
 
-import type { FlatListProduct, ProductData } from "../../types";
+import type { ProductData } from "../../types";
 
-interface CommonProductProps
+interface ExploreProductProps
 	extends Omit<ProductData, "availableQuantity" | "description"> {}
 
-interface CommonProductsProps extends FlatListProduct<ProductData> {
-	products: ProductData[];
-}
-
-export const CommonProduct = (props: CommonProductProps) => {
+export const ExploreProduct = (props: ExploreProductProps) => {
 	const dispatch = useDispatch();
 	const navigation = useReactNavigation();
 
@@ -34,7 +29,7 @@ export const CommonProduct = (props: CommonProductProps) => {
 			accessibilityHint="Vai para a página de detalhes do produto"
 			style={{ width: "47%", marginTop: 24 }}
 		>
-			<Product
+			<ProductBase
 				{...props}
 				direction="column"
 				image={{ width: "100%", height: 180 }}
@@ -45,25 +40,7 @@ export const CommonProduct = (props: CommonProductProps) => {
 				>
 					<Icon name="cart" size={18} color="#f1f1f1" />
 				</AddToCartButton>
-			</Product>
+			</ProductBase>
 		</Link>
-	);
-};
-
-export const CommonProducts = ({ products, ...props }: CommonProductsProps) => {
-	const renderItem = useCallback(
-		({ item }: ListRenderItemInfo<ProductData>) => <CommonProduct {...item} />,
-		[]
-	);
-
-	const keyExtractor = useCallback(({ id }: ProductData) => id, []);
-
-	return (
-		<FlatList
-			{...props}
-			data={products}
-			renderItem={renderItem}
-			keyExtractor={keyExtractor}
-		/>
 	);
 };

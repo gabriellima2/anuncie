@@ -31,11 +31,6 @@ export interface CartProductData extends ProductData {
 
 export interface AdProductData extends ProductData {}
 
-export type FlatListProduct<T> = Omit<
-	FlatListProps<T>,
-	"data" | "renderItem" | "keyExtractor"
->;
-
 interface ButtonDefaultProps extends TouchableOpacityProps {
 	style?: CSS;
 }

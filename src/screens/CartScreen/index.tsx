@@ -1,6 +1,7 @@
 import { useCartSelect } from "@redux/slices/cart.slice";
 
-import { CartProducts } from "@components/Products/CartProducts";
+import { CartProduct } from "@components/Products/CartProduct";
+import { ProductList } from "@components/ProductList";
 import { Empty } from "@components/Empty";
 
 import { AppLayout } from "@layouts/AppLayout";
@@ -17,7 +18,7 @@ export const CartScreen = () => {
 
 	return (
 		<AppLayout>
-			<CartProducts products={products} />
+			<ProductList products={products} ProductItem={CartProduct} />
 		</AppLayout>
 	);
 };

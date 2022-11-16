@@ -15,7 +15,7 @@ import {
 
 type DataProps = Pick<ProductData, "name" | "sourceImage" | "price">;
 
-export interface ProductProps extends DataProps, ViewProps, VariantStyles {
+export interface ProductBaseProps extends DataProps, ViewProps, VariantStyles {
 	additionalText?: string;
 	image: {
 		width: string | number;
@@ -23,7 +23,7 @@ export interface ProductProps extends DataProps, ViewProps, VariantStyles {
 	};
 }
 
-export const Product = ({
+export const ProductBase = ({
 	name,
 	price,
 	sourceImage,
@@ -31,7 +31,7 @@ export const Product = ({
 	image,
 	additionalText,
 	...props
-}: ProductProps) => {
+}: ProductBaseProps) => {
 	return (
 		<Container {...props}>
 			<Image
