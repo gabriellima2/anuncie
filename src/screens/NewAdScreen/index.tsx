@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import type { ImageSourcePropType } from "react-native";
 
 import { setAdProduct } from "@redux/slices/ad.slice";
+import { showToast } from "@redux/slices/toast.slice";
 
 import {
 	QuantityButton,
@@ -32,7 +33,7 @@ export const NewAdScreen = () => {
 		resolver: yupResolver(adSchema),
 	});
 
-	const onSubmit: SubmitHandler<AdFormData> = (data) => {
+	const handleProductCreation = (data: AdFormData) => {
 		const availableQuantity = quantityRef.current?.currentQuantity || 1;
 
 		const product: AdProductData = {
@@ -44,7 +45,18 @@ export const NewAdScreen = () => {
 			sourceImage: data.sourceImage.trim() as ImageSourcePropType,
 		};
 
-		dispatch(setAdProduct(product));
+		return product;
+	};
+
+	const onSubmit: SubmitHandler<AdFormData> = (data) => {
+		dispatch(setAdProduct(handleProductCreation(data)));
+		dispatch(
+			showToast({
+				type: "success",
+				iconName: "checkmark-sharp",
+				message: "Anúncio concluído com sucesso!",
+			})
+		);
 	};
 
 	return (
@@ -68,7 +80,7 @@ export const NewAdScreen = () => {
 						</Quantity>
 					</Fields>
 
-					<MainButton onPress={handleSubmit(onSubmit)}>Finalizar</MainButton>
+					<MainButton onPress={handleSubmit(onSubmit)}>Anunciar</MainButton>
 				</Form>
 			</KeyboardAvoidingWrapper>
 		</AppLayout>
