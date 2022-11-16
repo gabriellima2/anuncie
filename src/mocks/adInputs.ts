@@ -9,7 +9,7 @@ interface Input extends TextInputProps {
 export const adInputs: Input[] = [
 	{
 		id: "sourceImage",
-		label: "URL da Imagem",
+		label: "URL da Imagem (PNG, JPG ou JPEG)",
 		placeholder: "Ex: https://url-da-imagem.jpeg",
 		keyboardType: "url",
 	},
