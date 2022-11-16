@@ -12,6 +12,9 @@ export const adSchema = yup.object().shape({
 		.required("Preecha o campo de URL da imagem"),
 	price: yup
 		.string()
-		.matches(/^\$?\d+(,\d{3})*(\.\d*)?$/, "Por favor, digite uma valor válido")
+		.matches(
+			/^[1-9]\d{0,2}(\.\d{3})*,\d{2}$/,
+			"Por favor, digite uma valor válido"
+		)
 		.required("Preencha o campo de preço"),
 });
