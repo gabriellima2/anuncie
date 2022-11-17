@@ -8,6 +8,7 @@ import { RemoveButton } from "@components/Buttons/RemoveButton";
 import { ProductBase } from "./ProductBase";
 
 import type { CartProductData } from "../../types";
+import { isSingularText } from "@utils/isSingularText";
 
 export const CartProduct = (props: CartProductData) => {
 	const dispatch = useDispatch();
@@ -25,7 +26,11 @@ export const CartProduct = (props: CartProductData) => {
 			{...props}
 			direction="row"
 			image={{ width: 100, height: 100 }}
-			additionalText={`${props.availableQuantity} Unidades disponíveis`}
+			additionalText={`${props.availableQuantity} ${
+				isSingularText(props.availableQuantity)
+					? "Unidade disponível"
+					: "Unidades disponíveis"
+			}`}
 		>
 			<RemoveButton
 				onPress={handleRemove}

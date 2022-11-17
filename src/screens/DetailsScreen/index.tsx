@@ -27,6 +27,7 @@ import {
 } from "./styles";
 import { getSpecificProduct } from "@utils/getSpecificProduct";
 import { products as productsMock } from "@mocks/products";
+import { isSingularText } from "@utils/isSingularText";
 
 interface DetailsScreenProps
 	extends NativeStackScreenProps<RootStackParams, "Details"> {}
@@ -62,7 +63,10 @@ export const DetailsScreen = (props: DetailsScreenProps) => {
 					<Name>{product.name}</Name>
 					<Description>{product.description || "Sem informações"}</Description>
 					<Complementary>
-						{product.availableQuantity} Unidades Disponíveis
+						{product.availableQuantity}{" "}
+						{isSingularText(product.availableQuantity)
+							? "Unidade disponível"
+							: "Unidades disponíveis"}
 					</Complementary>
 					<Complementary>Vendido por {product.soldBy}</Complementary>
 					<Price>R$ {product.price}</Price>
