@@ -17,10 +17,10 @@ import {
 	StackCartNavigator,
 	StackHomeNavigator,
 	StackProfileNavigator,
-	stackRoutesNames,
 } from "./Stacks";
 
 import { globalStyles } from "../themes";
+import { stackRoutesNames } from "@constants/stackRoutesNames";
 
 const Tab = createBottomTabNavigator();
 

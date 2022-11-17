@@ -12,6 +12,7 @@
       "@routes/*": ["./src/routes/*"],
       "@utils/*": ["./src/utils/*"],
       "@screens/*": ["./src/screens/*"],
+      "@constants/*": ["./src/constants/*"],
     },
   },
   "extends": "expo/tsconfig.base"

@@ -12,15 +12,6 @@ import type { Node, RootStackParams, StackRouteNames } from "../types";
 
 const Stack = createNativeStackNavigator<RootStackParams>();
 
-export const stackRoutesNames: Record<StackRouteNames, StackRouteNames> = {
-	Home: "Home",
-	Details: "Details",
-	Cart: "Cart",
-	Ads: "Ads",
-	NewAd: "NewAd",
-	Profile: "Profile",
-};
-
 interface NavigatorProps extends Node {
 	initialRouteName: StackRouteNames;
 }
@@ -51,9 +42,9 @@ const Navigator = (props: NavigatorProps) => {
 };
 
 export const StackHomeNavigator = () => (
-	<Navigator initialRouteName={stackRoutesNames.Home}>
+	<Navigator initialRouteName={"Home"}>
 		<Stack.Screen
-			name={stackRoutesNames.Home}
+			name={"Home"}
 			component={HomeScreen}
 			options={{ title: "Explorar" }}
 		/>
@@ -66,23 +57,34 @@ export const StackHomeNavigator = () => (
 );
 
 export const StackAdsNavigator = () => (
-	<Navigator initialRouteName={stackRoutesNames.Ads}>
-		<Stack.Screen name={stackRoutesNames.Ads} component={AdsScreen} />
-		<Stack.Screen name={stackRoutesNames.NewAd} component={NewAdScreen} />
+	<Navigator initialRouteName={"Ads"}>
+		<Stack.Screen
+			name={"Ads"}
+			component={AdsScreen}
+			options={{ title: "Anúncios" }}
+		/>
+		<Stack.Screen
+			name={"NewAd"}
+			component={NewAdScreen}
+			options={{ title: "Novo anúncio" }}
+		/>
 	</Navigator>
 );
 
 export const StackCartNavigator = () => (
-	<Navigator initialRouteName={stackRoutesNames.Cart}>
-		<Stack.Screen name={stackRoutesNames.Cart} component={CartScreen} />
-		<Stack.Screen name={"Details"} component={DetailsScreen} />
+	<Navigator initialRouteName={"Cart"}>
+		<Stack.Screen
+			name={"Cart"}
+			component={CartScreen}
+			options={{ title: "Carrinho" }}
+		/>
 	</Navigator>
 );
 
 export const StackProfileNavigator = () => (
-	<Navigator initialRouteName={stackRoutesNames.Profile}>
+	<Navigator initialRouteName={"Profile"}>
 		<Stack.Screen
-			name={stackRoutesNames.Profile}
+			name={"Profile"}
 			component={ProfileScreen}
 			options={{ title: "Sua Conta" }}
 		/>

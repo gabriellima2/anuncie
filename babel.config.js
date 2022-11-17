@@ -21,6 +21,7 @@ module.exports = function(api) {
           "@routes": "./src/routes",
           "@utils": "./src/utils",
           "@screens": "./src/screens",
+          "@constants": "./src/constants",
         }
       }],
     ],
