@@ -29,8 +29,13 @@ export const adSlice = createSlice({
 			console.log("editar " + action.payload.id);
 		},
 
-		removeAdProduct: (state, action: PayloadAction<RemoveAdProductAction>) => {
-			console.log("remover " + action.payload.id);
+		removeAdProduct: (
+			state,
+			{ payload }: PayloadAction<RemoveAdProductAction>
+		) => {
+			state.products = state.products.filter((product) => {
+				if (product.id !== payload.id) return product;
+			});
 		},
 	},
 });
