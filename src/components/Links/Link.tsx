@@ -1,10 +1,8 @@
-import { Button } from "@components/Buttons/Button";
+import { Button, ButtonProps } from "@components/Buttons/Button";
 import { TouchableOpacity } from "react-native";
 
-import type { ButtonDefaultProps } from "../../types";
-
 export interface LinkProps
-	extends Omit<ButtonDefaultProps, "activeOpacity" | "accessibilityRole"> {
+	extends Omit<ButtonProps, "activeOpacity" | "accessibilityRole"> {
 	variants?: "default" | "background";
 }
 

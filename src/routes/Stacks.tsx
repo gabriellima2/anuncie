@@ -1,6 +1,8 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useTheme } from "styled-components/native";
 
+import { NewAdLink } from "@components/Links/NewAdLink";
+
 import { DetailsScreen } from "@screens/DetailsScreen";
 import { ProfileScreen } from "@screens/ProfileScreen";
 import { NewAdScreen } from "@screens/NewAdScreen";
@@ -61,7 +63,10 @@ export const StackAdsNavigator = () => (
 		<Stack.Screen
 			name={"Ads"}
 			component={AdsScreen}
-			options={{ title: "Anúncios" }}
+			options={{
+				title: "Anúncios",
+				headerRight: () => <NewAdLink size="small" />,
+			}}
 		/>
 		<Stack.Screen
 			name={"NewAd"}
