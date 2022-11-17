@@ -43,6 +43,7 @@ export const NewAdScreen = () => {
 			price: data.price.trim(),
 			availableQuantity,
 			sourceImage: data.sourceImage.trim() as ImageSourcePropType,
+			soldBy: "Gabriel",
 		};
 
 		return product;

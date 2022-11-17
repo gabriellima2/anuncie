@@ -2,8 +2,9 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
 
 import { getSpecificProduct } from "@utils/getSpecificProduct";
+import { products } from "@mocks/products";
 
-import type { CartProductData, ProductData } from "../../types";
+import type { CartProductData } from "../../types";
 import type { RootState } from "@redux/store";
 
 interface CartState {
@@ -30,7 +31,7 @@ export const cartSlice = createSlice({
 	reducers: {
 		addProduct: (state, { payload }: PayloadAction<AddProductAction>) => {
 			const product = {
-				...getSpecificProduct(payload.id),
+				...getSpecificProduct(products, payload.id),
 				quantity: payload.quantity,
 			};
 

@@ -7,6 +7,7 @@ export const products = [
 		price: "139,00",
 		sourceImage: require("../../assets/images/kit.jpg"),
 		availableQuantity: 12,
+		soldBy: "John",
 	},
 	{
 		id: "1",
@@ -16,6 +17,7 @@ export const products = [
 		price: "245,00",
 		sourceImage: require("../../assets/images/tenis.jpg"),
 		availableQuantity: 12,
+		soldBy: "John",
 	},
 	{
 		id: "2",
@@ -25,6 +27,7 @@ export const products = [
 		price: "2900,00",
 		sourceImage: require("../../assets/images/iphone.jpg"),
 		availableQuantity: 12,
+		soldBy: "Taylor",
 	},
 	{
 		id: "3",
@@ -34,6 +37,7 @@ export const products = [
 		price: "139,00",
 		sourceImage: require("../../assets/images/kit.jpg"),
 		availableQuantity: 12,
+		soldBy: "Taylor",
 	},
 	{
 		id: "4",
@@ -43,5 +47,6 @@ export const products = [
 		price: "245,00",
 		sourceImage: require("../../assets/images/tenis.jpg"),
 		availableQuantity: 12,
+		soldBy: "Taylor",
 	},
 ];

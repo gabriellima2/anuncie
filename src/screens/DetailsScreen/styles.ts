@@ -29,13 +29,14 @@ export const Description = styled(Text.RegularPrimary)`
 	`}
 `;
 
-export const AvailableQuantity = styled(Text.LightSecondary)``;
+export const Complementary = styled(Text.LightSecondary)`
+	margin-bottom: 8px;
+`;
 
 export const Price = styled(Text.MediumPrimary)`
 	${({ theme }) => css`
 		font-size: ${theme.fontSizes[7]};
-
-		margin: ${theme.spaces[3]} 0px;
+		margin: ${theme.spaces[1]} 0px ${theme.spaces[3]} 0px;
 	`}
 `;
 

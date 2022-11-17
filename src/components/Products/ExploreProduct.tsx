@@ -35,6 +35,7 @@ export const ExploreProduct = (props: ExploreProductProps) => {
 				image={{ width: "100%", height: 180 }}
 			>
 				<AddToCartButton
+					disabled={props.soldBy === "Gabriel"}
 					variants="quick"
 					onPress={() => handleAddProductToCart()}
 				>

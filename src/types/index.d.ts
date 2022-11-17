@@ -23,6 +23,7 @@ export interface ProductData {
 	price: string;
 	availableQuantity: number;
 	sourceImage: ImageSourcePropType;
+	soldBy: string;
 }
 
 export interface CartProductData extends ProductData {

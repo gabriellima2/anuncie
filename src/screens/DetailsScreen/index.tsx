@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import { addProduct } from "@redux/slices/cart.slice";
+import { useAdSelect } from "@redux/slices/ad.slice";
 
 import {
 	QuantityButton,
@@ -20,21 +21,23 @@ import {
 	Content,
 	Description,
 	Name,
-	AvailableQuantity,
+	Complementary,
 	Price,
 	Buttons,
 } from "./styles";
 import { getSpecificProduct } from "@utils/getSpecificProduct";
+import { products as productsMock } from "@mocks/products";
 
 interface DetailsScreenProps
 	extends NativeStackScreenProps<RootStackParams, "Details"> {}
 
 export const DetailsScreen = (props: DetailsScreenProps) => {
 	const quantityRef = useRef<QuantityButtonRef>(null);
+	const { products: productsAD } = useAdSelect();
 	const dispatch = useDispatch();
 
 	const id = props.route.params.id;
-	const product = getSpecificProduct(id);
+	const product = getSpecificProduct([...productsAD, ...productsMock], id);
 
 	const handleAddProductToCart = () => {
 		if (!quantityRef.current) return;
@@ -46,17 +49,22 @@ export const DetailsScreen = (props: DetailsScreenProps) => {
 	return (
 		<AppLayout>
 			<Image
-				source={product.sourceImage}
+				source={
+					typeof product.sourceImage === "string"
+						? { uri: product.sourceImage }
+						: product.sourceImage
+				}
 				accessibilityLabel={`Imagem do produto ${product.name}`}
 				style={{ width: "100%", height: "45%" }}
 			/>
 			<Container>
 				<Content>
 					<Name>{product.name}</Name>
-					<Description>{product.description}</Description>
-					<AvailableQuantity>
+					<Description>{product.description || "Sem informações"}</Description>
+					<Complementary>
 						{product.availableQuantity} Unidades Disponíveis
-					</AvailableQuantity>
+					</Complementary>
+					<Complementary>Vendido por {product.soldBy}</Complementary>
 					<Price>R$ {product.price}</Price>
 				</Content>
 
@@ -66,6 +74,7 @@ export const DetailsScreen = (props: DetailsScreenProps) => {
 						maxQuantity={product.availableQuantity}
 					/>
 					<AddToCartButton
+						disabled={product.soldBy === "Gabriel"}
 						variants="main"
 						onPress={handleAddProductToCart}
 						style={{ marginTop: 16 }}
