@@ -27,7 +27,7 @@ export const ExploreProduct = (props: ExploreProductProps) => {
 			onPress={() => navigation.navigate("Details", { id: props.id })}
 			accessibilityLabel="Ver mais detalhes do produto"
 			accessibilityHint="Vai para a página de detalhes do produto"
-			style={{ width: "47%", marginTop: 24 }}
+			style={{ width: "47%" }}
 		>
 			<ProductBase
 				{...props}

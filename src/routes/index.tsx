@@ -45,7 +45,7 @@ function setIcon(
 		tabBarIcon: ({ focused }) => (
 			<Icon
 				name={name}
-				size={windowHeight < 680 ? 24 : 28}
+				size={24}
 				color={focused ? globalStyles.colors.main : unfocusedColor}
 			/>
 		),
@@ -65,7 +65,7 @@ export const Routes = () => {
 					tabBarHideOnKeyboard: true,
 					tabBarStyle: {
 						display: hideTabBarOnSpecificRoutes(route) ? "none" : "flex",
-						height: windowHeight < 680 ? 60 : 68,
+						height: 55,
 
 						// Remover o fundo branco
 						position: "absolute",

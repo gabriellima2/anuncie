@@ -4,7 +4,7 @@ import { StatusBar } from "expo-status-bar";
 import type { Node } from "../types";
 
 interface ContainerStyle {
-	addVerticalSpacing?: boolean;
+	addHorizontalSpacing?: boolean;
 }
 
 interface AppLayoutProps extends ContainerStyle, Node {}
@@ -17,9 +17,9 @@ const SafeArea = styled.SafeAreaView`
 `;
 
 export const Container = styled.View<ContainerStyle>`
-	${({ theme, addVerticalSpacing }) => css`
+	${({ theme, addHorizontalSpacing }) => css`
 		flex: 1;
-		padding: ${theme.spaces[3]} ${addVerticalSpacing ? theme.spaces[3] : 0};
+		padding: ${theme.spaces[3]} ${addHorizontalSpacing ? theme.spaces[3] : 0};
 		background-color: ${theme.colors.bg};
 	`}
 `;
@@ -37,8 +37,8 @@ export const AppLayout = (props: AppLayoutProps) => {
 	);
 };
 
-const defaultProps: Pick<AppLayoutProps, "addVerticalSpacing"> = {
-	addVerticalSpacing: true,
+const defaultProps: Pick<AppLayoutProps, "addHorizontalSpacing"> = {
+	addHorizontalSpacing: true,
 };
 
 AppLayout.defaultProps = defaultProps;

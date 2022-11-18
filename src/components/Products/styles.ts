@@ -6,9 +6,10 @@ export interface VariantStyles {
 }
 
 export const Container = styled.View<VariantStyles>`
-	${({ direction }) => css`
+	${({ theme, direction }) => css`
 		flex-direction: ${direction};
 		align-items: ${direction === "row" ? "center" : "flex-start"};
+		margin-bottom: ${theme.spaces[3]};
 	`}
 `;
 

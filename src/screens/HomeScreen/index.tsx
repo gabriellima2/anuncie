@@ -12,7 +12,7 @@ export const HomeScreen = () => {
 	const { products } = useAdSelect();
 
 	return (
-		<AppLayout addVerticalSpacing={false}>
+		<AppLayout addHorizontalSpacing={false}>
 			<ProductList
 				products={[...productsMock, ...products]}
 				ProductItem={ExploreProduct}
