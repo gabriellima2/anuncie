@@ -35,17 +35,19 @@ export const ProductBase = ({
 	return (
 		<Container {...props}>
 			<Image
-				source={
-					typeof sourceImage === "string" ? { uri: sourceImage } : sourceImage
-				}
-				resizeMode="center"
+				source={{ uri: sourceImage }}
+				resizeMode="contain"
 				accessibilityLabel={`Imagem de ${name}`}
-				style={{ width: image.width, height: image.height }}
+				style={{
+					width: image.width,
+					height: image.height,
+					backgroundColor: "#fff",
+				}}
 			/>
 
 			<Info direction={props.direction}>
 				<View>
-					<Name numberOfLines={2}>{name}</Name>
+					<Name numberOfLines={1}>{name}</Name>
 					{additionalText && <Additional>{additionalText}</Additional>}
 					<Price>R$ {price}</Price>
 				</View>

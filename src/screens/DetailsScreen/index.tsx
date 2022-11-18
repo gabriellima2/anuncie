@@ -50,13 +50,10 @@ export const DetailsScreen = (props: DetailsScreenProps) => {
 	return (
 		<AppLayout>
 			<Image
-				source={
-					typeof product.sourceImage === "string"
-						? { uri: product.sourceImage }
-						: product.sourceImage
-				}
+				source={{ uri: product.sourceImage }}
 				accessibilityLabel={`Imagem do produto ${product.name}`}
-				style={{ width: "100%", height: "45%" }}
+				resizeMode="contain"
+				style={{ width: "100%", height: "45%", backgroundColor: "#fff" }}
 			/>
 			<Container>
 				<Content>

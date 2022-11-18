@@ -21,7 +21,6 @@ export const Info = styled.View<VariantStyles>`
 		justify-content: space-between;
 		align-items: flex-end;
 		flex-direction: row;
-		flex-wrap: wrap;
 
 		padding: ${theme.spaces[3]} 0px;
 		margin-left: ${direction === "row" ? theme.spaces[4] : 0};
@@ -30,7 +29,7 @@ export const Info = styled.View<VariantStyles>`
 
 export const Name = styled(Text.MediumPrimary)`
 	${({ theme }) => css`
-		width: 100%;
+		max-width: 150px;
 
 		font-size: ${theme.fontSizes[5]};
 	`}
@@ -46,6 +45,7 @@ export const Price = styled(Text.RegularPrimary)`
 `;
 
 export const UserInteractions = styled.View`
+	max-width: 80px;
 	height: auto;
 `;
 

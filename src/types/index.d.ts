@@ -22,7 +22,7 @@ export interface ProductData {
 	description?: string;
 	price: string;
 	availableQuantity: number;
-	sourceImage: ImageSourcePropType;
+	sourceImage: string;
 	soldBy: string;
 }
 

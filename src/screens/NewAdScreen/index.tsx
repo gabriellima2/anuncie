@@ -2,7 +2,6 @@ import { useRef } from "react";
 import { useForm, SubmitHandler, Path } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch } from "react-redux";
-import type { ImageSourcePropType } from "react-native";
 
 import { setAdProduct } from "@redux/slices/ad.slice";
 import { showToast } from "@redux/slices/toast.slice";
@@ -42,7 +41,7 @@ export const NewAdScreen = () => {
 			description: data.description?.trim(),
 			price: data.price.trim(),
 			availableQuantity,
-			sourceImage: data.sourceImage.trim() as ImageSourcePropType,
+			sourceImage: data.sourceImage.trim(),
 			soldBy: "Gabriel",
 		};
 
