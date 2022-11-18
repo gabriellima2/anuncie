@@ -16,8 +16,9 @@ export const Link = ({ variants, ...props }: LinkProps) => {
 	);
 };
 
-const defaultProps: Pick<LinkProps, "variants"> = {
+const defaultProps: Pick<LinkProps, "variants" | "size"> = {
 	variants: "default",
+	size: "default",
 };
 
 Link.defaultProps = defaultProps;

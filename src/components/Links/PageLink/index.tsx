@@ -5,7 +5,7 @@ import { Icon } from "@components/Icon";
 
 import { Container, Content, Value } from "./styles";
 
-interface PageLinkProps extends LinkProps {
+interface PageLinkProps extends Omit<LinkProps, "size" | "children"> {
 	icon: string;
 	text: string;
 }
