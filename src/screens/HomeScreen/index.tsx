@@ -1,7 +1,7 @@
 import { View } from "react-native";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 
-import { useAdSelect } from "@redux/slices/ad.slice";
+import { useProducts } from "@hooks/useProducts";
 
 import { ExploreProduct } from "@components/Products/ExploreProduct";
 import { ProductList } from "@components/ProductList";
@@ -9,10 +9,8 @@ import { SearchBar } from "@components/SearchBar";
 
 import { AppLayout } from "@layouts/AppLayout";
 
-import { products as productsMock } from "@mocks/products";
-
 export const HomeScreen = () => {
-	const { products } = useAdSelect();
+	const products = useProducts();
 	const tabBarHeight = useBottomTabBarHeight();
 
 	return (
@@ -21,7 +19,7 @@ export const HomeScreen = () => {
 				<SearchBar handleSearch={(value) => console.log(value)} />
 			</View>
 			<ProductList
-				products={[...productsMock, ...products]}
+				products={products}
 				ProductItem={ExploreProduct}
 				numColumns={2}
 				style={{ marginTop: 8 }}

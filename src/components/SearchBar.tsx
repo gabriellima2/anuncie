@@ -35,6 +35,7 @@ export const SearchBar = ({ handleSearch }: SearchBarProps) => {
 				accessibilityLabel="Buscar"
 				accessibilityHint="Realizará a busca"
 				style={{ marginLeft: 12 }}
+				onPress={() => handleSearch(searchValue)}
 			>
 				<Icon name="ios-search-outline" size={20} color={"#f1f1f1"} />
 			</Button>
