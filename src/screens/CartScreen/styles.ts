@@ -24,7 +24,7 @@ export const Checkout = styled.View<CheckoutStyles>`
 		border-top-right-radius: 24px;
 		border-top-left-radius: 24px;
 
-		transform: translateY(-${bottomPosition - 30}px);
+		transform: translateY(-${Math.abs(bottomPosition - 30)}px);
 	`}
 `;
 
