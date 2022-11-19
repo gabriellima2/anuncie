@@ -14,7 +14,7 @@ import { Container, QuantityText } from "./styles";
 
 export type QuantityButtonRef = { currentQuantity: number } | null;
 
-interface QuantityButtonProps {
+export interface QuantityButtonProps {
 	maxQuantity: number;
 	initialQuantity?: number;
 	handleQuantityChange?: (quantity: number) => void;

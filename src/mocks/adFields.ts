@@ -1,12 +1,6 @@
-import { AdProductData } from "src/types";
-import type { TextInputProps } from "react-native";
+import { AdFormData, FieldsData } from "src/types";
 
-interface Input extends TextInputProps {
-	id: keyof AdProductData;
-	label: string;
-}
-
-export const adInputs: Input[] = [
+export const adFields: FieldsData<AdFormData>[] = [
 	{
 		id: "sourceImage",
 		label: "URL da Imagem (PNG, JPG ou JPEG)",

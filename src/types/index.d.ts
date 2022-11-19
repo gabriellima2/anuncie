@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import type {
-	FlatListProps,
-	ImageSourcePropType,
+	TextInputProps,
 	StyleProp,
 	TouchableOpacityProps,
 	ViewStyle,
@@ -32,6 +31,9 @@ export interface CartProductData extends ProductData {
 
 export interface AdProductData extends ProductData {}
 
+export interface HandleAdProductData
+	extends Omit<ProductData, "soldBy" | "id"> {}
+
 interface ButtonDefaultProps extends TouchableOpacityProps {
 	style?: CSS;
 }
@@ -43,6 +45,7 @@ export type RootStackParams = {
 	Cart: undefined;
 	Profile: undefined;
 	Details: { id: string };
+	AdEdit: { id: string };
 };
 
 export type StackRouteNames = keyof RootStackParams;
@@ -56,6 +59,9 @@ export interface ToastColors {
 
 export type ToastTypes = keyof ToastColors;
 
-export interface AdFormData
-	extends InferType<typeof adSchema>,
-		Pick<Record<keyof AdProductData, string>, "availableQuantity"> {}
+export interface AdFormData extends InferType<typeof adSchema> {}
+
+export interface FieldsData<T> extends TextInputProps {
+	id: keyof T | string;
+	label: string;
+}

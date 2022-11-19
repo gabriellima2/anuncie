@@ -11,6 +11,7 @@ import { CartScreen } from "@screens/CartScreen";
 import { AdsScreen } from "@screens/AdsScreen";
 
 import type { Node, RootStackParams, StackRouteNames } from "../types";
+import { AdEditScreen } from "@screens/AdEditScreen";
 
 const Stack = createNativeStackNavigator<RootStackParams>();
 
@@ -72,6 +73,11 @@ export const StackAdsNavigator = () => (
 			name={"NewAd"}
 			component={NewAdScreen}
 			options={{ title: "Novo anúncio" }}
+		/>
+		<Stack.Screen
+			name="AdEdit"
+			component={AdEditScreen}
+			options={{ title: "Editar anúncio" }}
 		/>
 	</Navigator>
 );

@@ -1,28 +1,38 @@
-import { Control, FieldValues, useController, Path } from "react-hook-form";
+import {
+	Control,
+	FieldValues,
+	useController,
+	Path,
+	PathValue,
+} from "react-hook-form";
 
 import { Input, InputProps } from "@components/Inputs/Input";
 import { Label } from "@components/Label";
 
 import { Container, Error } from "./styles";
 
-interface InputFormProps<TForm extends FieldValues> extends InputProps {
+interface FormInputProps<TForm extends FieldValues>
+	extends Omit<InputProps, "defaultValue"> {
 	name: Path<TForm>;
 	label: string;
 	control: Control<TForm, unknown>;
+	defaultValue?: PathValue<TForm, Path<TForm>> | undefined;
 }
 
-export const InputForm = <T extends FieldValues>({
+export const FormInput = <T extends FieldValues>({
 	label,
 	name,
 	control,
+	defaultValue,
 	...props
-}: InputFormProps<T>) => {
+}: FormInputProps<T>) => {
 	const {
 		field,
 		formState: { errors },
 	} = useController({
 		control,
 		name,
+		defaultValue,
 	});
 
 	const fieldError = errors[field.name];

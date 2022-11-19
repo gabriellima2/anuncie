@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
 
 import { changeProductQuantity, removeProduct } from "@redux/slices/cart.slice";
@@ -13,13 +13,12 @@ import { isSingularText } from "@utils/isSingularText";
 export const CartProduct = (props: CartProductData) => {
 	const dispatch = useDispatch();
 
-	const handleQuantityChange = (newQuantity: number) => {
+	const handleQuantityChange = (newQuantity: number) =>
 		dispatch(changeProductQuantity({ id: props.id, quantity: newQuantity }));
-	};
 
-	const handleRemove = () => {
+	const handleRemove = useCallback(() => {
 		dispatch(removeProduct({ id: props.id }));
-	};
+	}, []);
 
 	return (
 		<ProductBase

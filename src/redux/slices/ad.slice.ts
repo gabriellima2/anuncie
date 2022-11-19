@@ -10,7 +10,9 @@ interface AdState {
 }
 
 interface RemoveAdProductAction extends Pick<AdProductData, "id"> {}
-interface EditAdProductAction extends Pick<AdProductData, "id"> {}
+interface EditAdProductAction extends Pick<AdProductData, "id"> {
+	editedProduct: Omit<AdProductData, "id" | "soldBy">;
+}
 
 const initialState: AdState = {
 	products: [],
@@ -25,8 +27,15 @@ export const adSlice = createSlice({
 			state.products.push(action.payload);
 		},
 
-		editAdProduct: (state, action: PayloadAction<EditAdProductAction>) => {
-			console.log("editar " + action.payload.id);
+		editAdProduct: (state, { payload }: PayloadAction<EditAdProductAction>) => {
+			state.products = state.products.map((product) => {
+				if (product.id !== payload.id) return product;
+
+				return {
+					...product,
+					...payload.editedProduct,
+				};
+			});
 		},
 
 		removeAdProduct: (
