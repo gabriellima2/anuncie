@@ -13,10 +13,11 @@ import { AppLayout } from "@layouts/AppLayout";
 import { getSpecificProduct } from "@utils/getSpecificProduct";
 import { adFields } from "@mocks/adFields";
 
-import type { HandleAdProductData, RootStackParams } from "src/types";
+import type { TStackParams } from "@globalTypes/TStack";
+import type { IAdFormProductParams } from "@interfaces/IAdForm";
 
 interface AdEditScreenProps
-	extends NativeStackScreenProps<RootStackParams, "AdEdit"> {}
+	extends NativeStackScreenProps<TStackParams, "AdEdit"> {}
 
 export const AdEditScreen = (props: AdEditScreenProps) => {
 	const products = useProducts();
@@ -29,7 +30,7 @@ export const AdEditScreen = (props: AdEditScreenProps) => {
 		return { ...field, defaultValue: product[field.id] };
 	});
 
-	const handleProductFormatting = (data: HandleAdProductData) => {
+	const handleProductFormatting = (data: IAdFormProductParams) => {
 		const product = {
 			...data,
 			name: data.name.trim(),
@@ -41,7 +42,7 @@ export const AdEditScreen = (props: AdEditScreenProps) => {
 		return product;
 	};
 
-	const onSubmit = (data: HandleAdProductData) => {
+	const onSubmit = (data: IAdFormProductParams) => {
 		dispatch(
 			editAdProduct({ id, editedProduct: { ...handleProductFormatting(data) } })
 		);

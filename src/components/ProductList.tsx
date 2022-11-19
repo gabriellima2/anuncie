@@ -1,9 +1,9 @@
 import { useCallback } from "react";
 import { FlatList, ListRenderItemInfo, FlatListProps } from "react-native";
 
-import type { ProductData } from "src/types";
+import type { IProduct } from "@interfaces/IProduct";
 
-interface ProductListProps<TProduct extends ProductData>
+interface ProductListProps<TProduct extends IProduct>
 	extends Omit<
 		FlatListProps<TProduct>,
 		"data" | "renderItem" | "keyExtractor"
@@ -12,7 +12,7 @@ interface ProductListProps<TProduct extends ProductData>
 	ProductItem: (props: TProduct) => JSX.Element;
 }
 
-export const ProductList = <TProduct extends ProductData>({
+export const ProductList = <TProduct extends IProduct>({
 	products,
 	ProductItem,
 	...props

@@ -1,6 +1,7 @@
-import { AdFormData, FieldsData } from "src/types";
+import type { IAdForm } from "@interfaces/IAdForm";
+import type { IFields } from "@interfaces/IFields";
 
-export const adFields: FieldsData<AdFormData>[] = [
+export const adFields: IFields<IAdForm>[] = [
 	{
 		id: "sourceImage",
 		label: "URL da Imagem (PNG, JPG ou JPEG)",

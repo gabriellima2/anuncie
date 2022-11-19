@@ -1,13 +1,13 @@
 import styled, { css, useTheme } from "styled-components/native";
 import { StatusBar } from "expo-status-bar";
 
-import type { Node } from "../types";
+import type { IChildren } from "@interfaces/IChildren";
 
 interface ContainerStyle {
 	addHorizontalSpacing?: boolean;
 }
 
-interface AppLayoutProps extends ContainerStyle, Node {}
+interface AppLayoutProps extends ContainerStyle, IChildren {}
 
 const SafeArea = styled.SafeAreaView`
 	${({ theme }) => css`

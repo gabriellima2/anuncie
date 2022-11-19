@@ -2,16 +2,17 @@ import React, { useCallback } from "react";
 import { View } from "react-native";
 import { useDispatch } from "react-redux";
 
+import { useReactNavigation } from "@hooks/useReactNavigation";
+
 import { removeAdProduct } from "@redux/slices/ad.slice";
 
 import { RemoveButton } from "@components/Buttons/RemoveButton";
 import { EditButton } from "@components/Buttons/EditButton";
 import { ProductBase } from "./ProductBase";
 
-import type { AdProductData } from "../../types";
-import { useReactNavigation } from "@hooks/useReactNavigation";
+import type { IAdProduct } from "@interfaces/IProduct";
 
-export const AdProduct = (props: AdProductData) => {
+export const AdProduct = (props: IAdProduct) => {
 	const navigation = useReactNavigation();
 	const dispatch = useDispatch();
 

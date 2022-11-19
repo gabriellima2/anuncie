@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { IChildren } from "@interfaces/IChildren";
 
 import {
 	KeyboardAvoidingView,
@@ -7,9 +7,7 @@ import {
 	Keyboard,
 } from "react-native";
 
-interface KeyboardAvoidingWrapperProps {
-	children: ReactNode;
-}
+interface KeyboardAvoidingWrapperProps extends IChildren {}
 
 /*
 Teclado não sobrepor o elemento, habilitamos scroll para view e

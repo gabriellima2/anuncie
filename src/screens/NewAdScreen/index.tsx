@@ -9,13 +9,15 @@ import { AppLayout } from "@layouts/AppLayout";
 
 import { adFields } from "@mocks/adFields";
 import { generateID } from "@utils/generateID";
-import type { AdProductData, HandleAdProductData } from "src/types";
+
+import type { IAdFormProductParams } from "@interfaces/IAdForm";
+import type { IProduct } from "@interfaces/IProduct";
 
 export const NewAdScreen = () => {
 	const dispatch = useDispatch();
 
-	const handleProductCreation = (data: HandleAdProductData) => {
-		const product: AdProductData = {
+	const handleProductCreation = (data: IAdFormProductParams) => {
+		const product: IProduct = {
 			...data,
 			id: generateID(),
 			name: data.name.trim(),
@@ -28,7 +30,7 @@ export const NewAdScreen = () => {
 		return product;
 	};
 
-	const onSubmit = (data: HandleAdProductData) => {
+	const onSubmit = (data: IAdFormProductParams) => {
 		dispatch(setAdProduct(handleProductCreation(data)));
 		dispatch(
 			showToast({

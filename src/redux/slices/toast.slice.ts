@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
 
-import type { ToastTypes } from "../../types";
 import type { RootState } from "@redux/store";
+import type { IToast } from "@interfaces/IToast";
 
 interface ToastState {
 	isActive: boolean;
-	type: ToastTypes;
+	type: keyof IToast;
 	message: string;
 	iconName: string;
 	time?: number;

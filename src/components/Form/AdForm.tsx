@@ -11,8 +11,7 @@ import { Label } from "@components/Label";
 import { BaseForm, BaseFormProps } from "./BaseForm";
 
 import { adSchema } from "src/schemas/ad.schema";
-
-import type { AdFormData, HandleAdProductData } from "src/types";
+import type { IAdForm, IAdFormProductParams } from "@interfaces/IAdForm";
 
 const Quantity = styled.View`
 	align-items: center;
@@ -20,9 +19,9 @@ const Quantity = styled.View`
 `;
 
 interface AdFormProps
-	extends Pick<BaseFormProps<AdFormData>, "textButton" | "fields">,
+	extends Pick<BaseFormProps<IAdForm>, "textButton" | "fields">,
 		Pick<QuantityButtonProps, "initialQuantity"> {
-	onSubmit: (data: HandleAdProductData) => void;
+	onSubmit: (data: IAdFormProductParams) => void;
 }
 
 export const AdForm = ({
@@ -32,18 +31,14 @@ export const AdForm = ({
 }: AdFormProps) => {
 	const quantityRef = useRef<QuantityButtonRef>(null);
 
-	const handleSubmit: SubmitHandler<AdFormData> = (data) => {
+	const handleSubmit: SubmitHandler<IAdForm> = (data) => {
 		const availableQuantity = quantityRef.current?.currentQuantity || 1;
 
 		onSubmit({ ...data, availableQuantity });
 	};
 
 	return (
-		<BaseForm<AdFormData>
-			yupSchema={adSchema}
-			onSubmit={handleSubmit}
-			{...props}
-		>
+		<BaseForm<IAdForm> yupSchema={adSchema} onSubmit={handleSubmit} {...props}>
 			<Quantity>
 				<Label>Quantidade disponível</Label>
 				<QuantityButton

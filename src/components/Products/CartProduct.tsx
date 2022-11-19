@@ -7,10 +7,10 @@ import { QuantityButton } from "@components/Buttons/QuantityButton";
 import { RemoveButton } from "@components/Buttons/RemoveButton";
 import { ProductBase } from "./ProductBase";
 
-import type { CartProductData } from "../../types";
 import { isSingularText } from "@utils/isSingularText";
+import type { ICartProduct } from "@interfaces/IProduct";
 
-export const CartProduct = (props: CartProductData) => {
+export const CartProduct = (props: ICartProduct) => {
 	const dispatch = useDispatch();
 
 	const handleQuantityChange = (newQuantity: number) =>

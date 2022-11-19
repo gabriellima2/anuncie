@@ -1,10 +1,9 @@
 /* eslint-disable indent */
 import type { ReactNode } from "react";
 import styled, { css } from "styled-components/native";
+import { TouchableOpacityProps } from "react-native";
 
-import type { ButtonDefaultProps } from "../../types";
-
-export interface ButtonProps extends ButtonDefaultProps, ButtonStyle {
+export interface ButtonProps extends TouchableOpacityProps, ButtonStyle {
 	children: ReactNode;
 }
 

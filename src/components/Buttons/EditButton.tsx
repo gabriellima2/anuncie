@@ -1,9 +1,9 @@
+import type { TouchableOpacityProps } from "react-native";
+
 import { Icon } from "@components/Icon";
 import { Button } from "./Button";
 
-import type { ButtonDefaultProps } from "src/types";
-
-export const EditButton = (props: ButtonDefaultProps) => (
+export const EditButton = (props: TouchableOpacityProps) => (
 	<Button
 		{...props}
 		style={[props.style, { backgroundColor: "transparent" }]}

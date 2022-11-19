@@ -22,6 +22,8 @@ module.exports = function(api) {
           "@utils": "./src/utils",
           "@screens": "./src/screens",
           "@constants": "./src/constants",
+          "@interfaces": "./src/interfaces",
+          "@globalTypes": "./src/types",
         }
       }],
     ],

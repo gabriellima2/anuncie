@@ -5,18 +5,19 @@ import { NewAdLink } from "@components/Links/NewAdLink";
 
 import { DetailsScreen } from "@screens/DetailsScreen";
 import { ProfileScreen } from "@screens/ProfileScreen";
+import { AdEditScreen } from "@screens/AdEditScreen";
 import { NewAdScreen } from "@screens/NewAdScreen";
 import { HomeScreen } from "@screens/HomeScreen";
 import { CartScreen } from "@screens/CartScreen";
 import { AdsScreen } from "@screens/AdsScreen";
 
-import type { Node, RootStackParams, StackRouteNames } from "../types";
-import { AdEditScreen } from "@screens/AdEditScreen";
+import type { TStackNames, TStackParams } from "@globalTypes/TStack";
+import type { IChildren } from "@interfaces/IChildren";
 
-const Stack = createNativeStackNavigator<RootStackParams>();
+const Stack = createNativeStackNavigator<TStackParams>();
 
-interface NavigatorProps extends Node {
-	initialRouteName: StackRouteNames;
+interface NavigatorProps extends IChildren {
+	initialRouteName: TStackNames;
 }
 
 const Navigator = (props: NavigatorProps) => {

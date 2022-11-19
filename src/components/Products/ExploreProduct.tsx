@@ -6,13 +6,13 @@ import { addProduct } from "@redux/slices/cart.slice";
 
 import { AddToCartButton } from "@components/Buttons/AddToCartButton";
 import { Link } from "@components/Links/Link";
-import { Icon } from "@components/Icon";
 import { ProductBase } from "./ProductBase";
+import { Icon } from "@components/Icon";
 
-import type { ProductData } from "../../types";
+import type { IProduct } from "@interfaces/IProduct";
 
 interface ExploreProductProps
-	extends Omit<ProductData, "availableQuantity" | "description"> {}
+	extends Omit<IProduct, "availableQuantity" | "description"> {}
 
 export const ExploreProduct = (props: ExploreProductProps) => {
 	const dispatch = useDispatch();

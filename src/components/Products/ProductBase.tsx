@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, ViewProps, View } from "react-native";
 
-import type { ProductData } from "../../types";
+import type { IProduct } from "@interfaces/IProduct";
 
 import {
 	Info,
@@ -13,7 +13,7 @@ import {
 	VariantStyles,
 } from "./styles";
 
-type DataProps = Pick<ProductData, "name" | "sourceImage" | "price">;
+type DataProps = Pick<IProduct, "name" | "sourceImage" | "price">;
 
 export interface ProductBaseProps extends DataProps, ViewProps, VariantStyles {
 	additionalText?: string;

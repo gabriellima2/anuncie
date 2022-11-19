@@ -14,8 +14,6 @@ import { AddToCartButton } from "@components/Buttons/AddToCartButton";
 
 import { AppLayout } from "@layouts/AppLayout";
 
-import type { RootStackParams } from "../../types";
-
 import {
 	Container,
 	Content,
@@ -29,8 +27,10 @@ import { getSpecificProduct } from "@utils/getSpecificProduct";
 import { products as productsMock } from "@mocks/products";
 import { isSingularText } from "@utils/isSingularText";
 
+import type { TStackParams } from "@globalTypes/TStack";
+
 interface DetailsScreenProps
-	extends NativeStackScreenProps<RootStackParams, "Details"> {}
+	extends NativeStackScreenProps<TStackParams, "Details"> {}
 
 export const DetailsScreen = (props: DetailsScreenProps) => {
 	const quantityRef = useRef<QuantityButtonRef>(null);

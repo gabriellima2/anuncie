@@ -2,14 +2,13 @@ import {
 	GestureResponderEvent,
 	LayoutAnimation,
 	LayoutAnimationConfig,
+	TouchableOpacityProps,
 } from "react-native";
 
 import { Icon } from "@components/Icon";
 import { Button } from "./Button";
 
-import type { ButtonDefaultProps } from "../../types";
-
-export interface RemoveButtonProps extends ButtonDefaultProps {}
+export interface RemoveButtonProps extends TouchableOpacityProps {}
 
 export const RemoveButton = (props: RemoveButtonProps) => {
 	const layoutAnimConfig: LayoutAnimationConfig = {

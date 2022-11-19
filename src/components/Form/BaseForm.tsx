@@ -8,11 +8,11 @@ import { MainButton } from "@components/Buttons/MainButton";
 import { FullContainer } from "@components/FullContainer";
 import { FormInput } from "@components/Inputs/FormInput";
 
-import type { FieldsData } from "src/types";
+import type { IFields } from "@interfaces/IFields";
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 export interface BaseFormProps<TField extends {} = {}> extends ViewProps {
-	fields: FieldsData<TField>[];
+	fields: IFields<TField>[];
 	yupSchema: AnyObjectSchema;
 	onSubmit: (data: TField) => void;
 	textButton: string;

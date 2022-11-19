@@ -1,17 +1,17 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
-import { RootState } from "@redux/store";
 
-import type { AdProductData } from "src/types";
+import type { RootState } from "@redux/store";
+import type { IAdProduct } from "@interfaces/IProduct";
 
 interface AdState {
-	products: AdProductData[];
+	products: IAdProduct[];
 	isEmpty: boolean;
 }
 
-interface RemoveAdProductAction extends Pick<AdProductData, "id"> {}
-interface EditAdProductAction extends Pick<AdProductData, "id"> {
-	editedProduct: Omit<AdProductData, "id" | "soldBy">;
+interface RemoveAdProductAction extends Pick<IAdProduct, "id"> {}
+interface EditAdProductAction extends Pick<IAdProduct, "id"> {
+	editedProduct: Omit<IAdProduct, "id" | "soldBy">;
 }
 
 const initialState: AdState = {
@@ -23,7 +23,7 @@ export const adSlice = createSlice({
 	name: "ad",
 	initialState,
 	reducers: {
-		setAdProduct: (state, action: PayloadAction<AdProductData>) => {
+		setAdProduct: (state, action: PayloadAction<IAdProduct>) => {
 			state.products.push(action.payload);
 		},
 

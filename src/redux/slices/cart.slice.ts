@@ -5,22 +5,22 @@ import { formatCurrencyValue } from "@utils/formatCurrencyValue";
 import { getSpecificProduct } from "@utils/getSpecificProduct";
 import { products } from "@mocks/products";
 
-import type { CartProductData } from "../../types";
 import type { RootState } from "@redux/store";
+import type { ICartProduct } from "@interfaces/IProduct";
 
 interface CartState {
-	products: CartProductData[];
+	products: ICartProduct[];
 	isEmpty: boolean;
 	total: number;
 }
 
 export interface AddProductAction
-	extends Pick<CartProductData, "id" | "quantity"> {}
+	extends Pick<ICartProduct, "id" | "quantity"> {}
 
-export interface RemoveProductAction extends Pick<CartProductData, "id"> {}
+export interface RemoveProductAction extends Pick<ICartProduct, "id"> {}
 
 export interface ChangeProductQuantityAction
-	extends Pick<CartProductData, "id" | "quantity"> {}
+	extends Pick<ICartProduct, "id" | "quantity"> {}
 
 const initialState: CartState = {
 	products: [],

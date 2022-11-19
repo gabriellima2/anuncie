@@ -6,10 +6,10 @@ import { hideToast, useToastSelect } from "@redux/slices/toast.slice";
 
 import { Icon } from "@components/Icon";
 
-import type { ToastColors } from "../../types";
+import type { IToast } from "@interfaces/IToast";
 import { Container, Content, Message } from "./styles";
 
-const colors: ToastColors = {
+const colors: IToast = {
 	success: "#46EE6F",
 	warning: "#EEDF46",
 	error: "#EE4646",
