@@ -22,7 +22,7 @@ import {
 } from "./styles";
 
 export const CartScreen = () => {
-	const { products, isEmpty } = useCartSelect();
+	const { products, isEmpty, total } = useCartSelect();
 	const tabBarHeight = useBottomTabBarHeight();
 
 	if (isEmpty)
@@ -43,7 +43,7 @@ export const CartScreen = () => {
 						<Summary>
 							<TextContainer>
 								<LeftText>Subtotal</LeftText>
-								<RightText>R$00,00</RightText>
+								<RightText>R${total}</RightText>
 							</TextContainer>
 							<TextContainer>
 								<LeftText>Quantidade Total</LeftText>
@@ -55,7 +55,7 @@ export const CartScreen = () => {
 						</Summary>
 						<TextContainer>
 							<Total>Total</Total>
-							<Total>R$00,00</Total>
+							<Total>R${total}</Total>
 						</TextContainer>
 					</View>
 					<MainButton>Comprar</MainButton>

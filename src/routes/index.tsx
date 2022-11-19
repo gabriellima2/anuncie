@@ -1,6 +1,5 @@
 import type { ParamListBase, RouteProp } from "@react-navigation/native";
 import { useTheme } from "styled-components";
-import { Dimensions } from "react-native";
 import {
 	getFocusedRouteNameFromRoute,
 	NavigationContainer,
@@ -23,8 +22,6 @@ import { globalStyles } from "../themes";
 import { stackRoutesNames } from "@constants/stackRoutesNames";
 
 const Tab = createBottomTabNavigator();
-
-const windowHeight = Dimensions.get("window").height;
 
 function hideTabBarOnSpecificRoutes(route: RouteProp<ParamListBase, string>) {
 	const focusedRouteName = getFocusedRouteNameFromRoute(route);
