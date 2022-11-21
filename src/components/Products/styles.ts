@@ -31,6 +31,7 @@ export const Name = styled(Text.MediumPrimary)`
 	${({ theme }) => css`
 		max-width: 150px;
 
+		text-transform: capitalize;
 		font-size: ${theme.fontSizes[5]};
 	`}
 `;
@@ -52,6 +53,7 @@ export const UserInteractions = styled.View`
 export const Additional = styled(Text.LightSecondary)`
 	${({ theme }) => css`
 		font-size: 14px;
+		text-transform: capitalize;
 
 		margin: ${theme.spaces[2]} 0px 0px 0px;
 	`}

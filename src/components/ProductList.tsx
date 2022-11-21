@@ -1,31 +1,31 @@
-import { useCallback } from "react";
+import React, { useCallback } from "react";
 import { FlatList, ListRenderItemInfo, FlatListProps } from "react-native";
 
 import type { IProduct } from "@interfaces/IProduct";
 
-interface ProductListProps<TProduct extends IProduct>
+interface ProductListProps<TProductItem extends IProduct>
 	extends Omit<
-		FlatListProps<TProduct>,
+		FlatListProps<TProductItem>,
 		"data" | "renderItem" | "keyExtractor"
 	> {
-	products: TProduct[];
-	ProductItem: (props: TProduct) => JSX.Element;
+	products: TProductItem[];
+	ProductItem: (props: TProductItem) => JSX.Element;
 }
 
-export const ProductList = <TProduct extends IProduct>({
+export const ProductList = <TProductItem extends IProduct>({
 	products,
 	ProductItem,
 	...props
-}: ProductListProps<TProduct>) => {
+}: ProductListProps<TProductItem>) => {
 	const renderItem = useCallback(
-		({ item }: ListRenderItemInfo<TProduct>) => <ProductItem {...item} />,
+		({ item }: ListRenderItemInfo<TProductItem>) => <ProductItem {...item} />,
 		[]
 	);
 
-	const keyExtractor = useCallback(({ id }: TProduct) => id, []);
+	const keyExtractor = useCallback(({ id }: TProductItem) => id, []);
 
 	return (
-		<FlatList<TProduct>
+		<FlatList<TProductItem>
 			{...props}
 			data={products}
 			renderItem={renderItem}
