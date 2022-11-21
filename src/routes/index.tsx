@@ -19,7 +19,7 @@ import {
 } from "./Stacks";
 
 import { globalStyles } from "../themes";
-import { stackRoutesNames } from "@constants/stackRoutesNames";
+import { stacksWithoutTabBar } from "@constants/stackRoutesNames";
 
 const Tab = createBottomTabNavigator();
 
@@ -28,10 +28,11 @@ function hideTabBarOnSpecificRoutes(route: RouteProp<ParamListBase, string>) {
 
 	if (!focusedRouteName) return false;
 
-	return (
-		focusedRouteName === stackRoutesNames.Details ||
-		focusedRouteName === stackRoutesNames.NewAd
+	const hasTabBar = stacksWithoutTabBar.find(
+		(name) => name === focusedRouteName
 	);
+
+	return !!hasTabBar;
 }
 
 function setIcon(

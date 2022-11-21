@@ -10,7 +10,6 @@ import { FormInput } from "@components/Inputs/FormInput";
 
 import type { IFields } from "@interfaces/IFields";
 
-// eslint-disable-next-line @typescript-eslint/ban-types
 export interface BaseFormProps<TField extends {} = {}> extends ViewProps {
 	fields: IFields<TField>[];
 	yupSchema: AnyObjectSchema;
@@ -18,7 +17,6 @@ export interface BaseFormProps<TField extends {} = {}> extends ViewProps {
 	textButton: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
 export const BaseForm = <TField extends {} = {}>({
 	fields,
 	yupSchema,
@@ -50,7 +48,9 @@ export const BaseForm = <TField extends {} = {}>({
 					{children}
 				</FullContainer>
 
-				<MainButton onPress={handleSubmit(onSubmit)}>{textButton}</MainButton>
+				<MainButton onPress={handleSubmit(onSubmit)} style={{ marginTop: 56 }}>
+					{textButton}
+				</MainButton>
 			</FullContainer>
 		</KeyboardAvoidingWrapper>
 	);

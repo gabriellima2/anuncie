@@ -42,6 +42,7 @@
         "react/react-in-jsx-scope": "off",
 		    "@typescript-eslint/no-empty-interface": "off",
         "@typescript-eslint/no-var-requires": "off",
-        "react/display-name": "off"
+        "react/display-name": "off",
+        "@typescript-eslint/ban-types": "off"
     }
 }
