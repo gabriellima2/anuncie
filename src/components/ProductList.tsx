@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
 import { FlatList, ListRenderItemInfo, FlatListProps } from "react-native";
+import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 
 import type { IProduct } from "@interfaces/IProduct";
 
@@ -17,6 +18,8 @@ export const ProductList = <TProductItem extends IProduct>({
 	ProductItem,
 	...props
 }: ProductListProps<TProductItem>) => {
+	const tabBarHeight = useBottomTabBarHeight();
+
 	const renderItem = useCallback(
 		({ item }: ListRenderItemInfo<TProductItem>) => <ProductItem {...item} />,
 		[]
@@ -30,6 +33,10 @@ export const ProductList = <TProductItem extends IProduct>({
 			data={products}
 			renderItem={renderItem}
 			keyExtractor={keyExtractor}
+			contentContainerStyle={{
+				paddingBottom: tabBarHeight,
+				paddingHorizontal: 12,
+			}}
 		/>
 	);
 };

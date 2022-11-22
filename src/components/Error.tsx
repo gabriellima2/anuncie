@@ -1,7 +1,9 @@
 import styled, { css } from "styled-components/native";
-import { Text } from "./Text";
 
-interface EmptyProps {
+import { Text } from "./Text";
+import { AppLayout } from "@layouts/AppLayout";
+
+interface ErrorProps {
 	message: string;
 }
 
@@ -17,8 +19,10 @@ const Message = styled(Text.MediumPrimary)`
 	`}
 `;
 
-export const Empty = ({ message }: EmptyProps) => (
-	<Container>
-		<Message>{message}</Message>
-	</Container>
+export const Error = ({ message }: ErrorProps) => (
+	<AppLayout>
+		<Container>
+			<Message>{message}</Message>
+		</Container>
+	</AppLayout>
 );

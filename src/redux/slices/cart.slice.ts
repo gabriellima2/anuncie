@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
 
 import { formatCurrencyValue } from "@utils/formatCurrencyValue";
-import { getSpecificProduct } from "@utils/getSpecificProduct";
+import { getProduct } from "@utils/getProduct";
 import { products } from "@mocks/products";
 
 import type { RootState } from "@redux/store";
@@ -33,17 +33,21 @@ export const cartSlice = createSlice({
 	initialState,
 	reducers: {
 		addProduct: (state, { payload }: PayloadAction<AddProductAction>) => {
-			const product = {
-				...getSpecificProduct(products, payload.id),
-				quantity: payload.quantity,
-			};
-			const formattedPrice = formatCurrencyValue(product.price);
+			const productFound = getProduct.byId(products, payload.id);
 
-			state.products.push(product);
-			state.total += formattedPrice * product.quantity;
+			if (productFound) {
+				const product = {
+					...productFound,
+					quantity: payload.quantity,
+				};
+				const formattedPrice = formatCurrencyValue(product.price);
 
-			if (state.isEmpty) {
-				state.isEmpty = false;
+				state.products.push(product);
+				state.total += formattedPrice * product.quantity;
+
+				if (state.isEmpty) {
+					state.isEmpty = false;
+				}
 			}
 		},
 		removeProduct: (state, { payload }: PayloadAction<RemoveProductAction>) => {

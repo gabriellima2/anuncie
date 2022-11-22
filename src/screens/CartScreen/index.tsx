@@ -6,7 +6,7 @@ import { useCartSelect } from "@redux/slices/cart.slice";
 import { CartProduct } from "@components/Products/CartProduct";
 import { MainButton } from "@components/Buttons/MainButton";
 import { ProductList } from "@components/ProductList";
-import { Empty } from "@components/Empty";
+import { Error } from "@components/Error";
 
 import { AppLayout } from "@layouts/AppLayout";
 import { isSingularText } from "@utils/isSingularText";
@@ -25,17 +25,12 @@ export const CartScreen = () => {
 	const { products, isEmpty, total } = useCartSelect();
 	const tabBarHeight = useBottomTabBarHeight();
 
-	if (isEmpty)
-		return (
-			<AppLayout>
-				<Empty message="Carrinho vazio" />
-			</AppLayout>
-		);
+	if (isEmpty) return <Error message="Carrinho vazio" />;
 
 	const totalQuantity = products.length;
 
 	return (
-		<AppLayout>
+		<AppLayout addHorizontalSpacing={false}>
 			<ProductList products={products} ProductItem={CartProduct} />
 			<Container>
 				<Checkout bottomPosition={tabBarHeight}>

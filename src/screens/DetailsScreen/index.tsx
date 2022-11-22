@@ -11,8 +11,15 @@ import {
 	QuantityButtonRef,
 } from "@components/Buttons/QuantityButton";
 import { AddToCartButton } from "@components/Buttons/AddToCartButton";
+import { Error } from "@components/Error";
 
 import { AppLayout } from "@layouts/AppLayout";
+
+import { getProduct } from "@utils/getProduct";
+import { products as productsMock } from "@mocks/products";
+import { isSingularText } from "@utils/isSingularText";
+
+import type { TStackParams } from "@globalTypes/TStack";
 
 import {
 	Container,
@@ -23,11 +30,6 @@ import {
 	Price,
 	Buttons,
 } from "./styles";
-import { getSpecificProduct } from "@utils/getSpecificProduct";
-import { products as productsMock } from "@mocks/products";
-import { isSingularText } from "@utils/isSingularText";
-
-import type { TStackParams } from "@globalTypes/TStack";
 
 interface DetailsScreenProps
 	extends NativeStackScreenProps<TStackParams, "Details"> {}
@@ -38,7 +40,7 @@ export const DetailsScreen = (props: DetailsScreenProps) => {
 	const dispatch = useDispatch();
 
 	const id = props.route.params.id;
-	const product = getSpecificProduct([...productsAD, ...productsMock], id);
+	const product = getProduct.byId([...productsAD, ...productsMock], id);
 
 	const handleAddProductToCart = () => {
 		if (!quantityRef.current) return;
@@ -46,6 +48,10 @@ export const DetailsScreen = (props: DetailsScreenProps) => {
 		const quantity = quantityRef.current.currentQuantity;
 		dispatch(addProduct({ id, quantity }));
 	};
+
+	if (!product) {
+		return <Error message="Produto não encontrado" />;
+	}
 
 	return (
 		<AppLayout>

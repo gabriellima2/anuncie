@@ -6,6 +6,7 @@ export type TStackParams = {
 	Profile: undefined;
 	Details: { id: string };
 	AdEdit: { id: string };
+	SearchResult: { searchValue: string };
 };
 
 export type TStackNames = keyof TStackParams;

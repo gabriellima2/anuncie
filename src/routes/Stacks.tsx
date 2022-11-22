@@ -3,6 +3,7 @@ import { useTheme } from "styled-components/native";
 
 import { NewAdLink } from "@components/Links/NewAdLink";
 
+import { SearchResultScreen } from "@screens/SearchResultScreen";
 import { DetailsScreen } from "@screens/DetailsScreen";
 import { ProfileScreen } from "@screens/ProfileScreen";
 import { AdEditScreen } from "@screens/AdEditScreen";
@@ -55,6 +56,11 @@ export const StackHomeNavigator = () => (
 		<Stack.Screen
 			name={"Details"}
 			component={DetailsScreen}
+			options={{ title: "" }}
+		/>
+		<Stack.Screen
+			name={"SearchResult"}
+			component={SearchResultScreen}
 			options={{ title: "" }}
 		/>
 	</Navigator>
