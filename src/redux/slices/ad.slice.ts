@@ -25,6 +25,10 @@ export const adSlice = createSlice({
 	reducers: {
 		setAdProduct: (state, action: PayloadAction<IAdProduct>) => {
 			state.products.push(action.payload);
+
+			if (state.isEmpty) {
+				state.isEmpty = false;
+			}
 		},
 
 		editAdProduct: (state, { payload }: PayloadAction<EditAdProductAction>) => {
@@ -45,6 +49,10 @@ export const adSlice = createSlice({
 			state.products = state.products.filter((product) => {
 				if (product.id !== payload.id) return product;
 			});
+
+			if (!state.isEmpty && state.products.length === 0) {
+				state.isEmpty = true;
+			}
 		},
 	},
 });

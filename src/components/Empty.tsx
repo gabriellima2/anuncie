@@ -2,7 +2,7 @@ import styled, { css } from "styled-components/native";
 import { Text } from "./Text";
 
 interface EmptyProps {
-	element: string;
+	message: string;
 }
 
 const Container = styled.View`
@@ -17,8 +17,8 @@ const Message = styled(Text.MediumPrimary)`
 	`}
 `;
 
-export const Empty = ({ element }: EmptyProps) => (
+export const Empty = ({ message }: EmptyProps) => (
 	<Container>
-		<Message>{element} Vazio!</Message>
+		<Message>{message}</Message>
 	</Container>
 );

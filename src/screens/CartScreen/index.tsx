@@ -28,7 +28,7 @@ export const CartScreen = () => {
 	if (isEmpty)
 		return (
 			<AppLayout>
-				<Empty element="Carrinho" />
+				<Empty message="Carrinho vazio" />
 			</AppLayout>
 		);
 
