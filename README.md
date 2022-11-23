@@ -7,7 +7,7 @@
 <h3 align="center">Projeto em desenvolvimento 👨‍💻</h3>
 
 <div align="center">
-  <img src="./assets/github/anuncie-figma.jpg" alt="demonstração do projeto" >
+  <img src="./assets/github/anuncie-figma.png" alt="demonstração do projeto" >
 </div>
 
 # Tecnologias
