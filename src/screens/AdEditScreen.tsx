@@ -14,8 +14,9 @@ import { AppLayout } from "@layouts/AppLayout";
 import { getProduct } from "@utils/getProduct";
 import { adFields } from "@mocks/adFields";
 
-import type { TStackParams } from "@globalTypes/TStack";
 import type { IAdFormProductParams } from "@interfaces/IAdForm";
+import type { TStackParams } from "@globalTypes/TStack";
+import type { IProduct } from "@interfaces/IProduct";
 
 interface AdEditScreenProps
 	extends NativeStackScreenProps<TStackParams, "AdEdit"> {}
@@ -26,10 +27,6 @@ export const AdEditScreen = (props: AdEditScreenProps) => {
 
 	const id = props.route.params.id;
 	const product = getProduct.byId(products, id);
-
-	const adFieldsFilled = adFields.map((field) => {
-		return { ...field, defaultValue: product[field.id] };
-	});
 
 	const handleProductFormatting = (data: IAdFormProductParams) => {
 		const product = {
@@ -60,10 +57,17 @@ export const AdEditScreen = (props: AdEditScreenProps) => {
 		return <Error message="Produto não encontrado em seus anúncios" />;
 	}
 
+	const getAdFieldsFilled = adFields.map((field) => {
+		return {
+			...field,
+			defaultValue: product[field.id as keyof IProduct] as string | undefined,
+		};
+	});
+
 	return (
 		<AppLayout>
 			<AdForm
-				fields={adFieldsFilled}
+				fields={getAdFieldsFilled}
 				initialQuantity={product.availableQuantity}
 				textButton="Editar"
 				onSubmit={onSubmit}
