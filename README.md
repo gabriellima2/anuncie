@@ -4,8 +4,6 @@
     Anuncie! App de ecommerce
 </h1>
 
-<h3 align="center">Projeto em desenvolvimento 👨‍💻</h3>
-
 <div align="center">
   <img src="./assets/github/anuncie-figma.png" alt="demonstração do projeto" >
 </div>
