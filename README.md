@@ -10,7 +10,7 @@
 
 # Tecnologias
 
-<p>Está sendo usado as seguintes tecnologias:</p>
+<p>Foi usado as seguintes tecnologias:</p>
 
 - [React Native](https://reactnative.dev/)
 - [Expo](https://expo.dev/)
@@ -44,4 +44,4 @@ $ yarn start || npm run start
 4. Escaneie o QRCode ou digite a URL informada
 ```
 
-<p align="center">Projeto sendo feito com 💙 por <a href="https://www.linkedin.com/in/gabriel-lima-860612236">Gabriel Lima</a></p>
+<p align="center">Projeto feito com 💙 por <a href="https://www.linkedin.com/in/gabriel-lima-860612236">Gabriel Lima</a></p>
