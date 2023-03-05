@@ -17,6 +17,7 @@
 - [Typescript](https://www.typescriptlang.org/)
 - [Redux Toolkit](https://redux-toolkit.js.org/)
 - [Styled-Components](https://styled-components.com/)
+- [React Hook Form](https://react-hook-form.com/)
 - [Async Storage](https://react-native-async-storage.github.io/async-storage/docs/usage/)
 - [React Navigation](https://reactnavigation.org/)
 
